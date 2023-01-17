@@ -1,0 +1,10 @@
+.profile__info-edit {
+border: 1px solid white;
+cursor: pointer;
+background-color: inherit;
+width: 24px;
+height: 24px;
+position: absolute;
+top: 15px;
+right: 0;
+}

@@ -1,0 +1,8 @@
+.profile__add-btn {
+    width: 150px;
+    height: 50px;
+    background-color: inherit;
+    cursor: pointer;
+    border: 2px solid white;
+   margin: 75px 0;
+}

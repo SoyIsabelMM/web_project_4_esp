@@ -1,0 +1,10 @@
+.profile__info {
+    width: 415px;
+    height: 74px;
+    margin: 62px 165px 74px 30px;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    position: relative;
+}
