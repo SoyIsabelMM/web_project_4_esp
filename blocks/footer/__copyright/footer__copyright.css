@@ -7,3 +7,13 @@
   height: 18px;
   margin: 68px auto 60px 0;
 }
+
+@media screen and (min-width: 320px) and (max-width: 898px) {
+  .footer__copyright {
+    margin: 30px 19px 36px;
+    font-size: 14px;
+    width: 282px;
+    height: 14px;
+    line-height: 17px;
+  }
+}
