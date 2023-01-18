@@ -21,4 +21,5 @@
 @import url(../blocks/elements/__element-container-title/elements__element-container-title.css);
 @import url(../blocks/elements/__element-container-btn/elements__element-container-btn.css);
 @import url(../blocks/elements/__container-like-image/elements__container-like-image.css);
-
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__copyright/footer__copyright.css);
