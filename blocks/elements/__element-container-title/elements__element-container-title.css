@@ -1,0 +1,14 @@
+.elements__element-container-title {
+    color: black;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 29px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    position: absolute;
+    width: 213px;
+    left: 21px;
+    top: 25px;
+    margin: 0;
+}

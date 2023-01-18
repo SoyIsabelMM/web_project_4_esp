@@ -1,0 +1,11 @@
+.elements__element-container-btn {
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    width: auto;
+    height: auto;
+    position: absolute;
+    right: 15px;
+    left: 240px;
+    top: 30px
+}

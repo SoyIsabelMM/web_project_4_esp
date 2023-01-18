@@ -1,0 +1,7 @@
+.elements {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 880px;
+}

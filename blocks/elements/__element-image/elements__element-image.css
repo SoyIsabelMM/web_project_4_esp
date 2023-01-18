@@ -1,0 +1,7 @@
+.elements__element-image {
+  width: 282px;
+  height: 282px;
+  background-size: cover;
+  margin: 0;
+  border-radius: 10px 10px 0 0;
+}

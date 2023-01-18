@@ -1,0 +1,8 @@
+.elements__element-container {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  width: auto;
+  height: 60px;
+  position: relative;
+}
