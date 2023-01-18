@@ -4,5 +4,11 @@
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin: 0 0 20px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 898px) {
+    .elements__element {
+        margin: 0 19px 20px;
+    }
 }

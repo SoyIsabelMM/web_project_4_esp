@@ -12,3 +12,9 @@
     top: 25px;
     margin: 0;
 }
+
+@media screen and (min-width: 320px) and (max-width: 898px) {
+    .elements__element-container-title {
+        right: 37px;
+    }
+}
