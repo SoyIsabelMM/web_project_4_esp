@@ -6,3 +6,11 @@
     margin-top: 13px;
     margin-bottom: 0;
 }
+
+@media screen and (min-width: 320px) and (max-width: 898px) {
+    .profile__info-about {
+        margin: 14px auto 0;
+        font-size: 14px;
+        line-height: 17px;
+    }
+}

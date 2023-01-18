@@ -3,3 +3,9 @@
   height: auto;
   margin: 0 auto;
 }
+
+@media screen and (min-width: 320px) and (max-width: 898px) {
+  .content {
+    width: 320px;
+  }
+}

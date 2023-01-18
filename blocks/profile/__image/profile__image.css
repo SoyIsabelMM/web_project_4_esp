@@ -4,3 +4,9 @@
     border-radius: 120px;
     margin-top: 36.25px;
 }
+
+@media screen and (min-width: 320px) and (max-width: 898px) {
+    .profile__image {
+        margin: 42px auto 30px;
+    }
+}

@@ -6,3 +6,11 @@
     border: 2px solid white;
    margin: 75px 0;
 }
+
+@media screen and (min-width: 320px) and (max-width: 898px) {
+    .profile__add-btn {
+        width: 282px;
+        height: 50px;
+        margin: 36px 19px;
+    }
+}

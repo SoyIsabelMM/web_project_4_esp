@@ -3,3 +3,10 @@
     height: 22px;
     padding: auto;
 }
+
+@media screen and (min-width: 320px) and (max-width: 898px) {
+    .profile__add-btn_image {
+        width: 16px;
+        height: 16px;
+    }
+}
