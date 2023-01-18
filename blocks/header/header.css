@@ -2,3 +2,12 @@
   margin: 45px 200px 0;
   width: 880px;
 }
+
+@media screen and (min-width: 320px) and (max-width: 898px) {
+  .header {
+    width: 320px;
+    height: auto;
+    margin: 28px 0 0;
+    border: 1px solid red;
+  }
+}
