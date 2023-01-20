@@ -8,3 +8,12 @@
     left: 430px;;
     cursor: pointer;
 }
+
+@media screen and (min-width: 320px) and (max-width: 898px) {
+    .popup__container-close-popup {
+        width: 26px;
+        height: 26px;
+        top: -45px;
+        left: 235px;
+    }
+}

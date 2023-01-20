@@ -9,3 +9,10 @@
   width: 880px;
   height: auto;
 }
+
+@media screen and (min-width: 320px) and (max-width: 898px) {
+  .popup {
+    width: 320px;
+  align-items: flex-start;
+  }
+}
