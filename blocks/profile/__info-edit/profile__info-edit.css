@@ -7,6 +7,12 @@ height: 24px;
 position: absolute;
 top: 15px;
 right: 0;
+transition: 0.3 ease all;
+}
+
+.profile__info-edit:hover {
+    opacity: 0.6;
+    background-color: black;
 }
 
 @media screen and (min-width: 320px) and (max-width: 898px) {
