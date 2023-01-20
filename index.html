@@ -45,7 +45,6 @@
           </button>
         </section>
         <section class="elements">
-          
           <div class="elements__element">
             <img
               class="elements__element-image"
@@ -176,11 +175,35 @@
             </div>
           </div>
         </section>
+
+        <section class="popup popup_opened">
+          <div class="popup__container">
+            <button class="popup__container-close-popup">
+              <img
+                src="./images/close-icon.png"
+                alt="botón para cerrar cuadro emergente"
+                class="popup__container-close-icon"
+              />
+            </button>
+            <h3 class="popup__container-text">Editar perfil</h3>
+           
+            <form class="popup__container-form" action="">
+              <input
+                type="text"
+                class="poput__container-input"
+                placeholder="Nombre"
+              />
+              <input type="text" placeholder="Acerca de mí"
+              class="poput__container-input"/>
+            </form>
+            <button class="popup__container-save-btn">Guardar</button>
+          </div>
+        </section>
+
       </main>
       <footer class="footer">
         <h3 class="footer__copyright">© 2023 Alrededor de los EEUU</h3>
       </footer>
     </div>
-    </footer>
   </body>
 </html>

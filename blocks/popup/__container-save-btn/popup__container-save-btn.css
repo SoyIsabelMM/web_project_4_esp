@@ -1,0 +1,20 @@
+.popup__container-save-btn {
+    background-color: black;
+    width: 358px;
+    height: 50.15px;
+    border-radius: 2px 2px;
+    margin: 48px 36px 36.51px;
+    color: white;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    font-weight: 400;
+    cursor: pointer;
+    border: none;
+    transition: 0.3 ease all;
+}
+
+
+.popup__container-save-btn:hover {
+    opacity: 0.8;
+}
