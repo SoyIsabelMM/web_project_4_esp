@@ -40,6 +40,6 @@ Todo nuestro proyecto esta organizado con la metodología **BEM**, la creación 
 
 ## Imágenes
 
-Para darle un menor peso a las imágenes, hemos utilizado **Tiny** [aquí](https://tinypng.com/), esto nos ayuda a que la página cargue más rápido, también hemos descargado imágenes de [**unsplash**] (https://unsplash.com/es) fotos completamente gratuitas y sin derecho de autor.
+Para darle un menor peso a las imágenes, hemos utilizado **Tiny** [aquí](https://tinypng.com/), esto nos ayuda a que la página cargue más rápido, también hemos descargado imágenes de [**unsplash**](https://unsplash.com/es) fotos completamente gratuitas y sin derecho de autor.
 
 **Enlace para GitHub:**  https://github.com/SoyIsabelMM/web_project_4_esp
