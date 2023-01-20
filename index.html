@@ -8,7 +8,6 @@
     <title>Around</title>
   </head>
   <body>
-    <script src="./:scripts/index.js"></script>
     <div class="page">
       <header class="header">
         <img
@@ -26,9 +25,9 @@
             alt="Foto de perfil"
           />
           <div class="profile__info">
-            <button class="profile__info-edit">
+            <button class="profile__info-edit-btn">
               <img
-                class="profile__info-icon"
+                class="profile__info-icon-edit"
                 src="./images/icon-edit.png"
                 alt="Botón editar perfil"
               />
@@ -38,7 +37,7 @@
           </div>
           <button class="profile__add-btn">
             <img
-              class="profile__add-btn_image"
+              class="profile__add-btn-image"
               src="./images/add-btn.png"
               alt="Botón para agregar imagenes"
             />
@@ -192,18 +191,20 @@
                 type="text"
                 class="poput__container-input"
                 placeholder="Nombre"
+                id="name"
               />
               <input type="text" placeholder="Acerca de mí"
-              class="poput__container-input"/>
+              class="poput__container-input"
+              id="about-me"/>
             </form>
             <button class="popup__container-save-btn">Guardar</button>
           </div>
         </section>
-
       </main>
       <footer class="footer">
         <h3 class="footer__copyright">© 2023 Alrededor de los EEUU</h3>
       </footer>
     </div>
+    <script src="./:scripts/index.js"></script>
   </body>
 </html>

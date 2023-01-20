@@ -1,11 +1,11 @@
-.profile__info-icon {
+.profile__info-icon-edit {
   width: 10px;
   height: 10px;
   padding: auto;
 }
 
 @media screen and (min-width: 320px) and (max-width: 898px) {
-  .profile__info-icon {
+  .profile__info-icon-edit {
     width: 7.5px;
     height: 7.5px;
     padding: 5.25px 5.25px;
