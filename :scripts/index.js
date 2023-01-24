@@ -8,25 +8,24 @@ let profileName = document.querySelector(".profile__info-name");
 let profileAboutMe = document.querySelector(".profile__info-about");
 let btnSave = document.querySelector(".popup__container-save-btn");
 
+function openPopup() {
+  formPopup.classList.toggle("popup_opened");
+  inputName.value = profileName.textContent;
+  inputAboutMe.value = profileAboutMe.textContent;
+}
 
-function openPopup(){
-formPopup.classList.toggle("popup_opened");
-} 
+btnEdit.addEventListener("click", openPopup);
+closeBtnPopup.addEventListener("click", openPopup);
 
-btnEdit.addEventListener ("click", openPopup);
-closeBtnPopup.addEventListener ("click", openPopup);
-
-function editProfile(){
-profileName.textContent = inputName.value;
-profileAboutMe.textContent = inputAboutMe.value;
+function editProfile() {
+  profileName.textContent = inputName.value;
+  profileAboutMe.textContent = inputAboutMe.value;
 }
 
 function evtSaveInfo(evt) {
-    evt.preventDefault();
-    editProfile();
+  evt.preventDefault();
+  editProfile();
 }
 
 btnSave.addEventListener("click", evtSaveInfo);
 btnSave.addEventListener("click", openPopup);
-
-
