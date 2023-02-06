@@ -8,6 +8,8 @@ let profileName = document.querySelector(".profile__info-name");
 let profileAboutMe = document.querySelector(".profile__info-about");
 let btnSave = document.querySelector(".popup__container-save-btn");
 
+let form = document.querySelector(".popup__container-form");
+
 function openPopup() {
   formPopup.classList.toggle("popup_opened");
   inputName.value = profileName.textContent;
@@ -29,3 +31,9 @@ function evtSaveInfo(evt) {
 
 btnSave.addEventListener("click", evtSaveInfo);
 btnSave.addEventListener("click", openPopup);
+
+function cleaninput() {
+form.classList.reset("#name");
+}
+
+form.addEventListener("click", cleaninput);
