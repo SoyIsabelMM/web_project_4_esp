@@ -130,7 +130,9 @@ const createNewImageBtn = document.querySelector(
 );
 
 /**
- * Con está función vamos a poder crear las nuevas cards con valores nuevos
+ * Con está función vamos a poder crear las nuevas cards con valores nuevos que trae de los input
+ * adicional en la misma función haremos que cierre y que cuando volvamos a presionar el boton add
+ * los input aparezcan vacios, solo mostrando los placeholder
  */
 function addNewCardElement() {
   const inputTitlePlace = document.querySelector("#title-place");
@@ -141,12 +143,29 @@ function addNewCardElement() {
     inputTitlePlace.value
   );
 
+  const btnDelete = cardElement.querySelector(".elements__element-btn-delete");
+
   elementsSectionCard.prepend(cardElement);
 
   inputTitlePlace.value = "";
   inputNewImage.value = "";
 
+  btnDelete.addEventListener("click", btnDeleteCard);
+
   openModalAddImage();
 }
 
 createNewImageBtn.addEventListener("click", addNewCardElement);
+
+//En esta sección vamos a manipular el botón de la papelera
+
+function btnDeleteCard() {
+  this.closest(".elements__element").remove();
+}
+
+const btnDelete = document.querySelectorAll(".elements__element-btn-delete");
+
+for (const card of btnDelete) {
+  card.addEventListener("click", btnDeleteCard);
+}
+
