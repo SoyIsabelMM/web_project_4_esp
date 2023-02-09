@@ -2,9 +2,7 @@
   width: 21px;
   height: 19px;
   padding: 0;
-  transition: 0.3s ease all;
+  pointer-events: none;
 }
 
-.elements__container-like-image:hover {
-  opacity: 0.5;
-}
+

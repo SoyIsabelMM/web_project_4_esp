@@ -1,0 +1,13 @@
+.elements__element-btn-delete {
+    cursor: pointer;
+    transition: 0.3s ease all;
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    width: auto;
+    height: auto;
+}
+
+.elements__element-btn-delete:hover {
+    opacity: 0.5;
+}

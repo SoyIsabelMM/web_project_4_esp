@@ -1,0 +1,11 @@
+.modal__container-closet {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: absolute;
+}
+
+.modal__container-closet:hover {
+  opacity: 0.5;
+}

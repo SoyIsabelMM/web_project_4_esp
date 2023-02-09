@@ -2,6 +2,7 @@
   width: 10px;
   height: 10px;
   padding: auto;
+  pointer-events: none;
 }
 
 @media screen and (min-width: 320px) and (max-width: 898px) {

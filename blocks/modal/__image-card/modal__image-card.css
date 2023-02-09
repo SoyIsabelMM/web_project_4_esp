@@ -1,0 +1,5 @@
+.modal__image-card {
+    max-width: 75vw;
+    max-height: 75vh;
+    border: 1px solid red;
+}

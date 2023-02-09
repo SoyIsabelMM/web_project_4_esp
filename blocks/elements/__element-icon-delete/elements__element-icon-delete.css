@@ -1,12 +1,6 @@
 .elements__element-icon-delete {
-  position: absolute;
   width: 18px;
   height: 19.3px;
-  top: 18px;
-  right: 15px;
-  transition: 0.3s ease all;
-}
-
-.elements__element-icon-delete:hover {
-    opacity: 0.5;
+  padding: 0;
+  pointer-events: none;
 }

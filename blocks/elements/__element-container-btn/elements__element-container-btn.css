@@ -8,4 +8,9 @@
     right: 15px;
     left: 240px;
     top: 30px;
+    transition: 0.3s ease all;
+}
+
+.elements__element-container-btn:hover {
+    opacity: 0.5;
 }

@@ -1,0 +1,9 @@
+.modal__container {
+  position: relative;
+  display: flex;
+  width: 880px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  object-fit: contain;
+}
