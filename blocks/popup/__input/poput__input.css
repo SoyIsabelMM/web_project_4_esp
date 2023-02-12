@@ -1,4 +1,4 @@
-.poput__container-input {
+.poput__input {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   border-top: 0;
   border-left: 0;
@@ -14,12 +14,12 @@
   font-weight: 400;
 }
 
-.poput__container-input:last-child {
+.poput__input:last-child {
   margin-bottom: 0;
 }
 
 @media screen and (min-width: 320px) and (max-width: 898px) {
-  .poput__container-input {
+  .poput__input {
     width: 238px;
     height: 26px;
     margin: 0 auto 30px;
