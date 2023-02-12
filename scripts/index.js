@@ -122,9 +122,7 @@ function getCardElement(link, name) {
   const btnDelete = cardElement.querySelector(".elements__element-btn-delete");
   btnDelete.addEventListener("click", btnDeleteCard);
 
-  // const btnLike ... => querySelec ...
   likeBtn.addEventListener("click", handleLikeIcon);
-  console.log("hola");
   return cardElement;
 }
 
@@ -175,14 +173,10 @@ function addNewCardElement() {
     inputTitlePlace.value
   );
 
-  // const btnDelete = cardElement.querySelector(".elements__element-btn-delete");
-
   elementsSectionCard.prepend(cardElement);
 
   inputTitlePlace.value = "";
   inputNewImage.value = "";
-
-  // btnDelete.addEventListener("click", btnDeleteCard);
 
   openModalAddImage();
 }
