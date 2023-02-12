@@ -21,7 +21,7 @@ Podemos encontrar que nuestra página es responsiva, el usuario podrá utilizarl
 * JavaScript
 * Flexbox by CSS
 * Figma 
-* MEtodología BEM by Yandex
+* Metodología BEM by Yandex
 * Medias Queries
 
 Para darle la estructura a nuestro proyecto hemos utilizado **HTML5** y agregamos clases a todas las etiquetas que utilizamos. 
@@ -41,5 +41,19 @@ Todo nuestro proyecto esta organizado con la metodología **BEM**, la creación 
 ## Imágenes
 
 Para darle un menor peso a las imágenes, hemos utilizado **Tiny** [aquí](https://tinypng.com/), esto nos ayuda a que la página cargue más rápido, también hemos descargado imágenes de [**unsplash**](https://unsplash.com/es) fotos completamente gratuitas y sin derecho de autor.
+
+## Actualización de proyecto: 
+
+Hemos actualizado nuestro proyecto, agregando funcionalidades a los botones de agregar imágenes nuevas a la galeria de fotos, like y delete: 
+
+**Agregar imágenes** Ahora podemos agregar imágenes con el botón *add Picture* utilizamos **JavaScript** para poder clonar una tarjeta con todos sus elementos pero a la hora de agregar imagenes podemos pasarle una URL y agregar un nombre nuevo, para poder copiar el nombre y que aparezca en la imágen nueva, le indicamos a nuestro JS que utilizara la propiedad *ALT* de imagenes para tomar ese dato y agregarlo. 
+
+**Like** Ahora al hacer click en el botón *like* este se activa y se pone negro, el efecto hover desaparece cuando esta activo el like, pero cuando volvemos al dislike nos volvemos a encontrar con nuestro hover. 
+
+**Delete** agregamos con *CSS* un nuevo botón a las tarjetas de imágenes con el icono de papelera, a este botón le dimos vida con **JavaScript** haciendo que cuando el usuario pueda eliminar las tarjeras. 
+
+## Ajustes y Próximas actualizaciones
+
+Al momento de elimanar y agregar una tarjeta nos encontramos con un pequeño inconveniente de diseño y comportamiento de los elementos tarjetas, ya que al eliminarlos no salian en orden sino que elimina primero al centro y despues no deslizaba, esto sucedia de igual manera cuando agregabamos nuevas imagenes, tuvimos que eliminar el justify-content y agregarle margenes, esperamos poder solucionar esto de mejor manera en la proxima actualización, en vez de usar FLEXBOX podemos probar con GRID-Layout. 
 
 **Enlace para GitHub:**  https://github.com/SoyIsabelMM/web_project_4_esp
