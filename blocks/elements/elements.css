@@ -1,8 +1,7 @@
 .elements {
-    height: auto;
+   min-height: 800px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     width: 880px;
 }
 

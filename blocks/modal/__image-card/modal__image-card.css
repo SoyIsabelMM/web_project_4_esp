@@ -1,0 +1,13 @@
+.modal__image-card {
+  max-width: 75vw;
+  max-height: 75vh;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media screen and (min-width: 320px) and (max-width: 898px) {
+  .modal__image-card {
+    height: 299px;
+    width: 320px;
+  }
+}

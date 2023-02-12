@@ -1,0 +1,17 @@
+.modal__container {
+  position: relative;
+  display: flex;
+  width: auto;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  object-fit: contain;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 320px) and (max-width: 898px) {
+  .modal__container {
+    width: 320px;
+    align-items: center;
+  }
+}
