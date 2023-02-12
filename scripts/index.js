@@ -10,6 +10,16 @@ let btnSave = document.querySelector(".popup__container-save-btn");
 
 let form = document.querySelector(".popup__container-form");
 
+const modalExpandedImage = document.querySelector(".modal");
+const modalExpandedImageCloseBtn = modalExpandedImage.querySelector(
+  ".modal__container-close"
+);
+
+function closeModalExpandedImage() {
+  modalExpandedImage.classList.toggle("modal_opened");
+}
+modalExpandedImageCloseBtn.addEventListener("click", closeModalExpandedImage);
+
 function openPopup() {
   formPopup.classList.toggle("popup_opened");
   inputName.value = profileName.textContent;
@@ -100,13 +110,35 @@ function getCardElement(link, name) {
   const elementTitleCard = cardElement.querySelector(
     ".elements__element-container-title"
   );
+  const likeBtn = cardElement.querySelector(".elements__element-container-btn");
 
   elementImageCard.src = link;
   elementImageCard.alt = name;
 
   elementTitleCard.textContent = name;
 
+  elementImageCard.addEventListener("click", openExpandedImageModel);
+
+  const btnDelete = cardElement.querySelector(".elements__element-btn-delete");
+  btnDelete.addEventListener("click", btnDeleteCard);
+
+  // const btnLike ... => querySelec ...
+  likeBtn.addEventListener("click", handleLikeIcon);
+  console.log("hola");
   return cardElement;
+}
+
+function openExpandedImageModel() {
+  const elemetImage = this.src;
+  const elementTitle = this.alt;
+
+  const imageContainer = modalExpandedImage.querySelector(".modal__image-card");
+  imageContainer.src = elemetImage;
+
+  const titleContainer = modalExpandedImage.querySelector(".modal__title-text");
+  titleContainer.textContent = elementTitle;
+
+  modalExpandedImage.classList.toggle("modal_opened");
 }
 
 /**
@@ -143,14 +175,14 @@ function addNewCardElement() {
     inputTitlePlace.value
   );
 
-  const btnDelete = cardElement.querySelector(".elements__element-btn-delete");
+  // const btnDelete = cardElement.querySelector(".elements__element-btn-delete");
 
   elementsSectionCard.prepend(cardElement);
 
   inputTitlePlace.value = "";
   inputNewImage.value = "";
 
-  btnDelete.addEventListener("click", btnDeleteCard);
+  // btnDelete.addEventListener("click", btnDeleteCard);
 
   openModalAddImage();
 }
@@ -163,9 +195,9 @@ function btnDeleteCard() {
   this.closest(".elements__element").remove();
 }
 
-const btnDelete = document.querySelectorAll(".elements__element-btn-delete");
+//En esta seccion vamos hacer que nuestro boton like funcione
 
-for (const card of btnDelete) {
-  card.addEventListener("click", btnDeleteCard);
+function handleLikeIcon(evt) {
+evt.target.classList.toggle("elements__element-container-btn_active");
 }
 

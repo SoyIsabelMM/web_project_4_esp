@@ -101,22 +101,20 @@
                 id="new-image"
               />
             </form>
-            <button class="popup__container-save-btn">
-              Crear
-            </button>
+            <button class="popup__container-save-btn">Crear</button>
           </div>
         </section>
 
         <section class="modal modal_opened">
-          <template class="modal__container">
+          <div class="modal__container">
             <img
               src="./images/close-icon.png"
               alt="icon para cerra la imágen"
-              class="modal__container-closet"
+              class="modal__container-close"
             />
-            <img class="modal__image-card" src="#" alt="imágen de la galeria" />
+            <img class="modal__image-card" src="" alt="" id="modal" />
             <h3 class="modal__title-text"></h3>
-          </template>
+          </div>
         </section>
       </main>
       <footer class="footer">
@@ -136,13 +134,9 @@
         <img class="elements__element-image" src=" " alt=" " />
         <div class="elements__element-container">
           <h3 class="elements__element-container-title"></h3>
-          <button class="elements__element-container-btn">
-            <img
-              class="elements__container-like-image"
-              src="./images/btn-like.png"
-              alt="Imagén de corazón para botón de like"
-            />
-          </button>
+          <img
+            class="elements__element-container-btn" src="./images/btn-like.png" alt=""
+          />
         </div>
       </div>
     </template>

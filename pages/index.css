@@ -22,7 +22,7 @@
 @import url(../blocks/elements/__element-container/elements__element-container.css);
 @import url(../blocks/elements/__element-container-title/elements__element-container-title.css);
 @import url(../blocks/elements/__element-container-btn/elements__element-container-btn.css);
-@import url(../blocks/elements/__container-like-image/elements__container-like-image.css);
+@import url(../blocks/elements/__element-container-btn/_active/elements__element-container-btn_active.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/popup/popup.css);
@@ -37,5 +37,6 @@
 @import url(../blocks/modal/modal.css);
 @import url(../blocks/modal/modal_opened/modal_opened.css);
 @import url(../blocks/modal/__container/modal__container.css);
-@import url(../blocks/modal/__container-closet/modal__container-closet.css);
+@import url(../blocks/modal/__container-close/modal__container-close.css);
 @import url(../blocks/modal/__image-card/modal__image-card.css);
+@import url(../blocks/modal/__title-text/modal__title-text.css);

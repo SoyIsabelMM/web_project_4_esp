@@ -1,6 +1,7 @@
 .page {
   max-width: auto;
   min-width: auto;
+  min-height: 1280px;
   background-color: #000000;
   font-family: "Inter", sans-serif;
   font-style: normal;

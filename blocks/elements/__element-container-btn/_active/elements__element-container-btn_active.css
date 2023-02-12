@@ -1,0 +1,10 @@
+.elements__element-container-btn_active {
+  z-index: 10;
+  opacity: 1;
+  position: absolute;
+  background-image: url(/images/like-btn-active.png);
+}
+
+.elements__element-container-btn_active:hover {
+  opacity: 1;
+}

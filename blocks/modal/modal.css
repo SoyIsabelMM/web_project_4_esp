@@ -7,8 +7,14 @@
     justify-content: center;
     flex-direction: column;
     width: 880px;
-    height: auto;
+    min-height: 800px;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 20;
     transition: all .7s ease;
 }
+
+@media screen and (min-width: 320px) and (max-width: 898px) {
+    .modal {
+      width: 320px;
+    }
+  }
