@@ -123,25 +123,24 @@
     </div>
 
     <template id="card-template">
-      <div class="elements__element">
-        <botton class="elements__element-btn-delete">
+      <div class="elements__card-container">
+        <button class="elements__card-container-btn-delete">
           <img
-            class="elements__element-icon-delete"
+            class="elements__card-container-icon-delete"
             src="./images/icon-delete.png"
             alt="icon eliminar imágen"
           />
-        </botton>
-        <img class="elements__element-image" src=" " alt=" " />
-        <div class="elements__element-container">
-          <h3 class="elements__element-container-title"></h3>
+        </button>
+        <img class="elements__card-container-image" src=" " alt=" " />
+        <div class="elements__card-container-footing">
+          <h3 class="elements__card-container-footing-title"></h3>
           <img
-            class="elements__element-container-btn"
-            src="./images/btn-like.png"
-            alt=""
+            class="elements__card-container-footing-btn" src="./images/btn-like.png" alt="like inactivo"
           />
         </div>
       </div>
     </template>
+    <script src="./scripts/constants.js"></script>
     <script src="./scripts/index.js"></script>
   </body>
 </html>

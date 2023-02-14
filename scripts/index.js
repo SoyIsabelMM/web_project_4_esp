@@ -1,99 +1,52 @@
-let btnEdit = document.querySelector(".profile__info-edit-btn");
-let closeBtnPopup = document.querySelector(".popup__container-close-popup");
-let formPopup = document.querySelector(".popup_opened");
-
-let inputName = document.querySelector("#name");
-let inputAboutMe = document.querySelector("#about-me");
-let profileName = document.querySelector(".profile__info-name");
-let profileAboutMe = document.querySelector(".profile__info-about");
-let btnSave = document.querySelector(".popup__container-save-btn");
-
-let form = document.querySelector(".popup__container-form");
-
-const modalExpandedImage = document.querySelector(".modal");
-const modalExpandedImageCloseBtn = modalExpandedImage.querySelector(
-  ".modal__container-close"
-);
-
+/**
+ *Esta función nos ayuda abrir el popup para las imágenes que se ven en el modal
+ */
 function closeModalExpandedImage() {
   modalExpandedImage.classList.toggle("modal_opened");
 }
-modalExpandedImageCloseBtn.addEventListener("click", closeModalExpandedImage);
 
+addEventListeners();
+
+/**
+ * Función para traer los datos del contenedor del perfil y
+ * queden registrados al inicio cuando abre el popup para editar perfil
+ */
 function openPopup() {
-  formPopup.classList.toggle("popup_opened");
+  popupFormeOpened.classList.toggle("popup_opened");
   inputName.value = profileName.textContent;
   inputAboutMe.value = profileAboutMe.textContent;
 }
 
-btnEdit.addEventListener("click", openPopup);
-closeBtnPopup.addEventListener("click", openPopup);
+addEventListeners();
 
+/**
+ * función para cambio de datos en el popu de editar perfil y
+ * quede almacenado en el contenedor de profile como valores nuevos
+ */
 function editProfile() {
   profileName.textContent = inputName.value;
   profileAboutMe.textContent = inputAboutMe.value;
 }
 
-function evtSaveInfo(evt) {
+/**
+ * Aqui evitamos que la página se recargue una vez que presionamos el botón de editProfile
+ * @param {evento} evt
+ */
+function saveInfoProfile(evt) {
   evt.preventDefault();
   editProfile();
 }
 
-btnSave.addEventListener("click", evtSaveInfo);
-btnSave.addEventListener("click", openPopup);
+addEventListeners();
 
-function cleaninput() {
-  form.classList.reset("#name");
-}
-
-form.addEventListener("click", cleaninput);
-
-//aquí vamos a poder abrir nuestro form de addpicture
-
-const btnOpenFormAddImage = document.querySelector(".profile__add-btn");
-const addPictureForm = document.querySelector("#add-picture-form");
-const addPictureFormClose = document.querySelector(
-  "#add-picture-form .popup__container-close-popup"
-);
-
-function openModalAddImage() {
+/**
+ * funcion y addEventlistener para abrir y cerrar el popup para agregar nuevas imágenes
+ */
+function openPopupAddImage() {
   addPictureForm.classList.toggle("popup_opened");
 }
 
-btnOpenFormAddImage.addEventListener("click", openModalAddImage);
-addPictureFormClose.addEventListener("click", openModalAddImage);
-
-//Aqui vamos a poder agregar imagenes
-
-const initialCards = [
-  {
-    name: "Valle de Yosemite",
-    src: "./images/valle-yosemite.jpeg",
-  },
-  {
-    name: "Lago Louise",
-    src: "./images/Lago-Louise.jpeg",
-  },
-  {
-    name: "Montañas Calvas",
-    src: "./images/montanas-calvas.jpeg",
-  },
-  {
-    name: "Latemar",
-    src: "./images/latemar.jpeg",
-  },
-  {
-    name: "Parque Nacional de la Vanoise",
-    src: "./images/parque-vanoise.jpeg",
-  },
-  {
-    name: "Lago di Braies",
-    src: "./images/lago-dibraies.jpeg",
-  },
-];
-
-const elementsSectionCard = document.querySelector(".elements");
-const cardTemplete = document.querySelector("#card-template").content;
+addEventListeners();
 
 /**
  * Con esta funcion clonamos el template de nuestras cartas que van a
@@ -105,28 +58,37 @@ const cardTemplete = document.querySelector("#card-template").content;
 function getCardElement(link, name) {
   const cardElement = cardTemplete.cloneNode(true);
   const elementImageCard = cardElement.querySelector(
-    ".elements__element-image"
+    ".elements__card-container-image"
   );
   const elementTitleCard = cardElement.querySelector(
-    ".elements__element-container-title"
+    ".elements__card-container-footing-title"
   );
-  const likeBtn = cardElement.querySelector(".elements__element-container-btn");
+  const likeBtn = cardElement.querySelector(
+    ".elements__card-container-footing-btn"
+  );
 
   elementImageCard.src = link;
   elementImageCard.alt = name;
 
   elementTitleCard.textContent = name;
 
-  elementImageCard.addEventListener("click", openExpandedImageModel);
+  elementImageCard.addEventListener("click", openExpandedImageModal);
 
-  const btnDelete = cardElement.querySelector(".elements__element-btn-delete");
-  btnDelete.addEventListener("click", btnDeleteCard);
+  const btnDelete = cardElement.querySelector(
+    ".elements__card-container-btn-delete"
+  );
+  btnDelete.addEventListener("click", handleDeleteCard);
 
   likeBtn.addEventListener("click", handleLikeIcon);
   return cardElement;
 }
 
-function openExpandedImageModel() {
+/**
+ * Con esta función podemos traer la información que se va a
+ *  mostrar en el modal de imagenes grandes, también al
+ *  presionar el botón de guardar se cierra el modal
+ */
+function openExpandedImageModal() {
   const elemetImage = this.src;
   const elementTitle = this.alt;
 
@@ -153,12 +115,6 @@ function renderInitialCards() {
 
 renderInitialCards();
 
-// Vamos a crearle una acción al bóton crear
-
-const createNewImageBtn = document.querySelector(
-  "#add-picture-form .popup__container-save-btn"
-);
-
 /**
  * Con está función vamos a poder crear las nuevas cards con valores nuevos que trae de los input
  * adicional en la misma función haremos que cierre y que cuando volvamos a presionar el boton add
@@ -178,20 +134,37 @@ function addNewCardElement() {
   inputTitlePlace.value = "";
   inputNewImage.value = "";
 
-  openModalAddImage();
+  openPopupAddImage();
 }
 
-createNewImageBtn.addEventListener("click", addNewCardElement);
+addEventListeners();
 
-//En esta sección vamos a manipular el botón de la papelera
-
-function btnDeleteCard() {
-  this.closest(".elements__element").remove();
+/**
+ * En esta sección vamos a manipular el botón de la papelera
+ */
+function handleDeleteCard() {
+  this.closest(".elements__card-container").remove();
 }
 
-//En esta seccion vamos hacer que nuestro boton like funcione
+/**
+ *
+ * @param {evento} evt En esta seccion vamos hacer que nuestro boton like funcione
+ */
 
 function handleLikeIcon(evt) {
-evt.target.classList.toggle("elements__element-container-btn_active");
+  evt.target.classList.toggle("elements__card-container-footing-btn_active");
 }
 
+/**
+ * Función para almacenar todos los eventos para los botones, popup y modal
+ */
+function addEventListeners() {
+  modalExpandedImageCloseBtn.addEventListener("click", closeModalExpandedImage);
+  btnEditInfoProfile.addEventListener("click", openPopup);
+  closeBtnPopup.addEventListener("click", openPopup);
+  btnSaveProfileInfo.addEventListener("click", saveInfoProfile);
+  btnSaveProfileInfo.addEventListener("click", openPopup);
+  btnOpenFormAddImage.addEventListener("click", openPopupAddImage);
+  addPictureFormClose.addEventListener("click", openPopupAddImage);
+  createNewImageBtn.addEventListener("click", addNewCardElement);
+}
