@@ -1,15 +1,13 @@
 /**
- *Esta función nos ayuda abrir el popup para las imágenes que se ven en el modal
+ *Esta función nos ayuda abrir el modal para las imágenes.
  */
 function closeModalExpandedImage() {
   modalExpandedImage.classList.toggle("modal_opened");
 }
 
-addEventListeners();
-
 /**
  * Función para traer los datos del contenedor del perfil y
- * queden registrados al inicio cuando abre el popup para editar perfil
+ * queden registrados.
  */
 function openPopup() {
   popupFormeOpened.classList.toggle("popup_opened");
@@ -17,10 +15,8 @@ function openPopup() {
   inputAboutMe.value = profileAboutMe.textContent;
 }
 
-addEventListeners();
-
 /**
- * función para cambio de datos en el popu de editar perfil y
+ * función para cambio de datos en el popup de editar perfil y
  * quede almacenado en el contenedor de profile como valores nuevos
  */
 function editProfile() {
@@ -37,16 +33,12 @@ function saveInfoProfile(evt) {
   editProfile();
 }
 
-addEventListeners();
-
 /**
- * funcion y addEventlistener para abrir y cerrar el popup para agregar nuevas imágenes
+ * funcion para abrir y cerrar el popup para agregar nuevas imágenes
  */
 function openPopupAddImage() {
   addPictureForm.classList.toggle("popup_opened");
 }
-
-addEventListeners();
 
 /**
  * Con esta funcion clonamos el template de nuestras cartas que van a
@@ -137,8 +129,6 @@ function addNewCardElement() {
   openPopupAddImage();
 }
 
-addEventListeners();
-
 /**
  * En esta sección vamos a manipular el botón de la papelera
  */
@@ -168,3 +158,6 @@ function addEventListeners() {
   addPictureFormClose.addEventListener("click", openPopupAddImage);
   createNewImageBtn.addEventListener("click", addNewCardElement);
 }
+
+addEventListeners();
+
