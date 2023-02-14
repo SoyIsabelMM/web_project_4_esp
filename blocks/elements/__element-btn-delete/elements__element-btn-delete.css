@@ -6,6 +6,9 @@
     right: 15px;
     width: auto;
     height: auto;
+    background-color: transparent;
+    border: none;
+    object-fit: cover;
 }
 
 .elements__element-btn-delete:hover {
