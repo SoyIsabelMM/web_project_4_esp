@@ -1,4 +1,4 @@
-.elements__element {
+.elements__card-container {
     width: 282px;
     height: 361px;
     background-color: white;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 898px) {
-    .elements__element {
+    .elements__card-container {
         margin: 0 19px 20px;
     }
 }

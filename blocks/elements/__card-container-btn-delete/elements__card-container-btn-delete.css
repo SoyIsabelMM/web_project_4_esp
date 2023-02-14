@@ -1,4 +1,4 @@
-.elements__element-btn-delete {
+.elements__card-container-btn-delete {
     cursor: pointer;
     transition: 0.3s ease all;
     position: absolute;
@@ -11,6 +11,6 @@
     object-fit: cover;
 }
 
-.elements__element-btn-delete:hover {
+.elements__card-container-btn-delete:hover {
     opacity: 0.5;
 }

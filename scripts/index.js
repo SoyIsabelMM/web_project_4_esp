@@ -105,12 +105,12 @@ const cardTemplete = document.querySelector("#card-template").content;
 function getCardElement(link, name) {
   const cardElement = cardTemplete.cloneNode(true);
   const elementImageCard = cardElement.querySelector(
-    ".elements__element-image"
+    ".elements__card-container-image"
   );
   const elementTitleCard = cardElement.querySelector(
-    ".elements__element-container-title"
+    ".elements__card-container-footing-title"
   );
-  const likeBtn = cardElement.querySelector(".elements__element-container-btn");
+  const likeBtn = cardElement.querySelector(".elements__card-container-footing-btn");
 
   elementImageCard.src = link;
   elementImageCard.alt = name;
@@ -119,7 +119,7 @@ function getCardElement(link, name) {
 
   elementImageCard.addEventListener("click", openExpandedImageModel);
 
-  const btnDelete = cardElement.querySelector(".elements__element-btn-delete");
+  const btnDelete = cardElement.querySelector(".elements__card-container-btn-delete");
   btnDelete.addEventListener("click", btnDeleteCard);
 
   likeBtn.addEventListener("click", handleLikeIcon);
@@ -186,12 +186,12 @@ createNewImageBtn.addEventListener("click", addNewCardElement);
 //En esta sección vamos a manipular el botón de la papelera
 
 function btnDeleteCard() {
-  this.closest(".elements__element").remove();
+  this.closest(".elements__card-container").remove();
 }
 
 //En esta seccion vamos hacer que nuestro boton like funcione
 
 function handleLikeIcon(evt) {
-evt.target.classList.toggle("elements__element-container-btn_active");
+evt.target.classList.toggle("elements__card-container-footing-btn_active");
 }
 
