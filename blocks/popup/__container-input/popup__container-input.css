@@ -12,6 +12,7 @@
   font-size: 14px;
   line-height: 17px;
   font-weight: 400;
+  outline: none;
 }
 
 .popup__container-input:last-child {

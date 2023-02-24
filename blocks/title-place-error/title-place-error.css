@@ -1,0 +1,12 @@
+.title-place-error {
+    position: absolute;
+    top: 145px;
+    left: 36px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 898px) {
+    .title-place-error {
+        top: 155px;
+        left: 22px;
+    }
+}

@@ -33,7 +33,15 @@
 @import url(../blocks/popup/__container-text/popup__container-text.css);
 @import url(../blocks/popup/__container-form/popup__container-form.css);
 @import url(../blocks/popup/__container-input/popup__container-input.css);
+@import url(../blocks/popup/__container-input/_type/_error/popup__container-input_type_error.css);
+@import url(../blocks/popup/__input-error/popup__input-error.css);
+@import url(../blocks/popup/__input-error/_active/popup__input-error_active.css);
 @import url(../blocks/popup/__container-save-btn/popup__container-save-btn.css);
+@import url(../blocks/popup/__container-save-btn/_inactive/popup__container-save-btn_inactive.css);
+@import url(../blocks/name-error/name-error.css);
+@import url(../blocks/about-me-error/about-me-error.css);
+@import url(../blocks/title-place-error/title-place-error.css);
+@import url(../blocks/new-image-error/new-image-error.css);
 @import url(../blocks/modal/modal.css);
 @import url(../blocks/modal/modal_opened/modal_opened.css);
 @import url(../blocks/modal/__container/modal__container.css);
