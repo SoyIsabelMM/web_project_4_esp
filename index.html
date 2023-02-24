@@ -58,21 +58,31 @@
             </button>
             <h3 class="popup__container-text">Editar perfil</h3>
 
-            <form class="popup__container-form">
+            <form class="popup__container-form" novalidate>
               <input
                 type="text"
                 class="popup__container-input"
                 placeholder="Nombre"
                 id="name"
+                minlength="2"
+                maxlength="40"
+                required
               />
+              <span class="popup__input-error name-error"></span>
               <input
                 type="text"
                 placeholder="Profesión"
                 class="popup__container-input"
                 id="about-me"
+                minlength="2"
+                maxlength="200"
+                required
               />
+              <span class="popup__input-error about-me-error"></span>
+              <button class="popup__container-save-btn" type="submit">
+                Guardar
+              </button>
             </form>
-            <button class="popup__container-save-btn">Guardar</button>
           </div>
         </section>
 
@@ -87,21 +97,30 @@
             </button>
             <h3 class="popup__container-text">Nuevo Lugar</h3>
 
-            <form class="popup__container-form">
+            <form class="popup__container-form" novalidate>
               <input
                 type="text"
                 class="popup__container-input"
                 placeholder="Título"
                 id="title-place"
+                minlength="2"
+                maxlength="30"
+                required
               />
+              <span class="popup__input-error title-place-error"></span>
+
               <input
-                type="text"
+                type="url"
                 placeholder="Enlace a la imagen"
                 class="popup__container-input"
                 id="new-image"
+                required
               />
+              <span class="popup__input-error new-image-error"></span>
+              <button class="popup__container-save-btn" type="submit">
+                Crear
+              </button>
             </form>
-            <button class="popup__container-save-btn">Crear</button>
           </div>
         </section>
 
@@ -135,11 +154,14 @@
         <div class="elements__card-container-footing">
           <h3 class="elements__card-container-footing-title"></h3>
           <img
-            class="elements__card-container-footing-btn" src="./images/btn-like.png" alt="like inactivo"
+            class="elements__card-container-footing-btn"
+            src="./images/btn-like.png"
+            alt="like inactivo"
           />
         </div>
       </div>
     </template>
+    <script src="./scripts/validate.js"></script>
     <script src="./scripts/constants.js"></script>
     <script src="./scripts/index.js"></script>
   </body>

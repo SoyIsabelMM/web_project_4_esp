@@ -1,0 +1,12 @@
+.about-me-error {
+    position: absolute;
+    top: 205px;
+    left: 36px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 898px) {
+    .about-me-error {
+        top: 212px;
+        left: 22px;
+    }
+}
