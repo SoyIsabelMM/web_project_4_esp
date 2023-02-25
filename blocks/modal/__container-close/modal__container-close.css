@@ -5,7 +5,7 @@
   transition: all 0.3s ease;
   position: relative;
   top: -10px;
-  right: -380px;
+  right: -500px;
 }
 
 .modal__container-close:hover {
