@@ -3,16 +3,17 @@
   position: fixed;
   top: 0;
   bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 880px;
+  width: auto;
   height: auto;
 }
 
 @media screen and (min-width: 320px) and (max-width: 898px) {
   .popup {
-    width: 320px;
-  align-items: flex-start;
+    align-items: flex-start;
   }
 }

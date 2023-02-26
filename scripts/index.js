@@ -145,6 +145,13 @@ function handleLikeIcon(evt) {
   evt.target.classList.toggle("elements__card-container-footing-btn_active");
 }
 
+modalExpandedImage.addEventListener("click", function (evt) {
+  if (evt.target.classList.contains("modal")) {
+    closeModalExpandedImage();
+  }
+});
+
+
 /**
  * Función para almacenar todos los eventos para los botones, popup y modal
  */
@@ -160,4 +167,3 @@ function addEventListeners() {
 }
 
 addEventListeners();
-
