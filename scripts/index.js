@@ -159,10 +159,12 @@ function addEventListeners() {
   modalExpandedImageCloseBtn.addEventListener("click", closeModalExpandedImage);
   btnEditInfoProfile.addEventListener("click", openPopup);
   closeBtnPopup.addEventListener("click", openPopup);
+  closePopupEditProfile.addEventListener("click", openPopup);
   btnSaveProfileInfo.addEventListener("click", saveInfoProfile);
   btnSaveProfileInfo.addEventListener("click", openPopup);
   btnOpenFormAddImage.addEventListener("click", openPopupAddImage);
   addPictureFormClose.addEventListener("click", openPopupAddImage);
+  closePopupNewImage.addEventListener("click", openPopupAddImage);
   createNewImageBtn.addEventListener("click", addNewCardElement);
 }
 

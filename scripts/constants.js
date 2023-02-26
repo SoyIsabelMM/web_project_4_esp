@@ -38,6 +38,9 @@ const modalExpandedImageCloseBtn = modalExpandedImage.querySelector(
 
 /**Constantes para traer los elementos
  * para el popup de editar perfil */
+const closePopupEditProfile = document.querySelector("#edit-profile-form");
+const closePopupNewImage = document.querySelector("#add-picture-form");
+
 const btnEditInfoProfile = document.querySelector(".profile__info-edit-btn");
 const closeBtnPopup = document.querySelector(".popup__container-close-popup");
 const popupFormeOpened = document.querySelector(".popup_opened");
