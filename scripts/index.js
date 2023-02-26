@@ -9,7 +9,7 @@ function closeModalExpandedImage() {
  * Función para traer los datos del contenedor del perfil y
  * queden registrados.
  */
-function openPopup() {
+function togglePopupProfile() {
   popupFormeOpened.classList.toggle("popup_opened");
   inputName.value = profileName.textContent;
   inputAboutMe.value = profileAboutMe.textContent;
@@ -36,7 +36,7 @@ function saveInfoProfile(evt) {
 /**
  * funcion para abrir y cerrar el popup para agregar nuevas imágenes
  */
-function openPopupAddImage() {
+function togglePopupAddImage() {
   addPictureForm.classList.toggle("popup_opened");
 }
 
@@ -126,7 +126,7 @@ function addNewCardElement() {
   inputTitlePlace.value = "";
   inputNewImage.value = "";
 
-  openPopupAddImage();
+  togglePopupAddImage();
 }
 
 /**
@@ -151,21 +151,41 @@ modalExpandedImage.addEventListener("click", function (evt) {
   }
 });
 
+function closeAllPopup(evt) {
+  if (evt.key === "Escape") {
+    const myPopups = document.querySelectorAll(".popup");
+    myPopups.forEach((popup) => {
+      popup.classList.add("popup_opened");
+    });
+  }
+}
 
+function closeModal(evt) {
+  if (evt.key === "Escape") {
+    modalExpandedImage.classList.add("modal_opened");
+  }
+}
 /**
  * Función para almacenar todos los eventos para los botones, popup y modal
  */
 function addEventListeners() {
   modalExpandedImageCloseBtn.addEventListener("click", closeModalExpandedImage);
-  btnEditInfoProfile.addEventListener("click", openPopup);
-  closeBtnPopup.addEventListener("click", openPopup);
-  closePopupEditProfile.addEventListener("click", openPopup);
+  btnEditInfoProfile.addEventListener("click", togglePopupProfile);
+  closeBtnPopup.addEventListener("click", togglePopupProfile);
+
+  popupEditProfileOverlay.addEventListener("click", togglePopupProfile);
+
   btnSaveProfileInfo.addEventListener("click", saveInfoProfile);
-  btnSaveProfileInfo.addEventListener("click", openPopup);
-  btnOpenFormAddImage.addEventListener("click", openPopupAddImage);
-  addPictureFormClose.addEventListener("click", openPopupAddImage);
-  closePopupNewImage.addEventListener("click", openPopupAddImage);
+  btnSaveProfileInfo.addEventListener("click", togglePopupProfile);
+  btnOpenFormAddImage.addEventListener("click", togglePopupAddImage);
+  addPictureFormClose.addEventListener("click", togglePopupAddImage);
+
+  popupNewImageOverlay.addEventListener("click", togglePopupAddImage);
+
   createNewImageBtn.addEventListener("click", addNewCardElement);
+
+  document.addEventListener("keydown", closeAllPopup);
+  document.addEventListener("keydown", closeModal);
 }
 
 addEventListeners();
