@@ -99,6 +99,7 @@ function openExpandedImageModal() {
  *
  */
 function renderInitialCards() {
+  // eslint-disable-next-line no-restricted-syntax
   for (const card of initialCards) {
     const cardElement = getCardElement(card.src, card.name);
     elementsSectionCard.append(cardElement);
@@ -122,11 +123,15 @@ function addNewCardElement() {
   );
 
   elementsSectionCard.prepend(cardElement);
+  togglePopupAddImage();
+  resetForm();
+}
 
+function resetForm() {
+  const inputTitlePlace = document.querySelector("#title-place");
+  const inputNewImage = document.querySelector("#new-image");
   inputTitlePlace.value = "";
   inputNewImage.value = "";
-
-  togglePopupAddImage();
 }
 
 /**
@@ -140,12 +145,11 @@ function handleDeleteCard() {
  *
  * @param {evento} evt En esta seccion vamos hacer que nuestro boton like funcione
  */
-
 function handleLikeIcon(evt) {
   evt.target.classList.toggle("elements__card-container-footing-btn_active");
 }
 
-modalExpandedImage.addEventListener("click", function (evt) {
+modalExpandedImage.addEventListener("click", (evt) => {
   if (evt.target.classList.contains("modal")) {
     closeModalExpandedImage();
   }
@@ -165,6 +169,7 @@ function closeModal(evt) {
     modalExpandedImage.classList.add("modal_opened");
   }
 }
+
 /**
  * Función para almacenar todos los eventos para los botones, popup y modal
  */
@@ -172,16 +177,12 @@ function addEventListeners() {
   modalExpandedImageCloseBtn.addEventListener("click", closeModalExpandedImage);
   btnEditInfoProfile.addEventListener("click", togglePopupProfile);
   closeBtnPopup.addEventListener("click", togglePopupProfile);
-
   popupEditProfileOverlay.addEventListener("click", togglePopupProfile);
-
   btnSaveProfileInfo.addEventListener("click", saveInfoProfile);
   btnSaveProfileInfo.addEventListener("click", togglePopupProfile);
   btnOpenFormAddImage.addEventListener("click", togglePopupAddImage);
   addPictureFormClose.addEventListener("click", togglePopupAddImage);
-
   popupNewImageOverlay.addEventListener("click", togglePopupAddImage);
-
   createNewImageBtn.addEventListener("click", addNewCardElement);
 
   document.addEventListener("keydown", closeAllPopup);
@@ -189,3 +190,4 @@ function addEventListeners() {
 }
 
 addEventListeners();
+enableValidation();
