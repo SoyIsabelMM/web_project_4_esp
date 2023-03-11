@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add("popup__container-input_type_error");
@@ -16,11 +15,13 @@ const hideInputError = (formElement, inputElement) => {
   errorElement.textContent = "";
 };
 
-const isValid = (formElement, inputElement) => (!inputElement.validity.valid
-  ? showInputError(formElement, inputElement, inputElement.validationMessage)
-  : hideInputError(formElement, inputElement));
+const isValid = (formElement, inputElement) =>
+  !inputElement.validity.valid
+    ? showInputError(formElement, inputElement, inputElement.validationMessage)
+    : hideInputError(formElement, inputElement);
 
-const hasInvalidInput = (inputList) => inputList.some((inputElement) => !inputElement.validity.valid);
+const hasInvalidInput = (inputList) =>
+  inputList.some((inputElement) => !inputElement.validity.valid);
 
 const disabledButton = (buttonElement) => {
   buttonElement.classList.add("popup__container-save-btn_inactive");
@@ -42,7 +43,7 @@ const toggleButtonState = (inputList, buttonElement) => {
 
 const setEventListeners = (formElement) => {
   const inputList = Array.from(
-    formElement.querySelectorAll(".popup__container-input"),
+    formElement.querySelectorAll(".popup__container-input")
   );
   const buttonElement = formElement.querySelector(".popup__container-save-btn");
 
@@ -59,7 +60,7 @@ const setEventListeners = (formElement) => {
 // eslint-disable-next-line import/prefer-default-export
 const enableValidation = () => {
   const formList = Array.from(
-    document.querySelectorAll(".popup__container-form"),
+    document.querySelectorAll(".popup__container-form")
   );
 
   formList.forEach((formElement) => {
