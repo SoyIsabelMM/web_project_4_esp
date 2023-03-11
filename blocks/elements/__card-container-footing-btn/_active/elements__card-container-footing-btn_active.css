@@ -1,6 +1,4 @@
 .elements__card-container-footing-btn_active {
-  z-index: 10;
-  opacity: 1;
   position: absolute;
   background-image: url(/images/like-btn-active.png);
 }
