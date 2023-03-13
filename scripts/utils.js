@@ -1,4 +1,4 @@
-import Card from "./card.js";
+import Card from "./Card.js";
 import {
   elementsSectionCard,
   modalExpandedImage,
@@ -16,8 +16,9 @@ import {
   addPictureFormClose,
   popupEditProfileOverlay,
   popupNewImageOverlay,
-  createNewImageBtn
+  createNewImageBtn,
 } from "./script.js";
+
 
 /**Cierre del modal de expandedImage, se aplica al boton X */
 function closeModalExpandedImage() {
@@ -44,14 +45,12 @@ function editProfile() {
 
 /**
  * Evitamos que la página se recargue al presionar el botón de guardar
- * @param {evento} evt
+ * @param {event} evt
  */
 function saveInfoProfile(evt) {
   evt.preventDefault();
   editProfile();
 }
-
-
 
 function togglePopupAddImage() {
   addPictureForm.classList.toggle("popup_opened");

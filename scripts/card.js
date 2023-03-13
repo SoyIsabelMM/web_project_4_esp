@@ -1,32 +1,4 @@
-/**
- * Constante que almacena todas las imágenes que aparecenal inicio de nuestro proyecto
- */
-const initialCards = [
-  {
-    name: "Valle de Yosemite",
-    src: "./images/valle-yosemite.jpeg",
-  },
-  {
-    name: "Lago Louise",
-    src: "./images/Lago-Louise.jpeg",
-  },
-  {
-    name: "Montañas Calvas",
-    src: "./images/montanas-calvas.jpeg",
-  },
-  {
-    name: "Latemar",
-    src: "./images/latemar.jpeg",
-  },
-  {
-    name: "Parque Nacional de la Vanoise",
-    src: "./images/parque-vanoise.jpeg",
-  },
-  {
-    name: "Lago di Braies",
-    src: "./images/lago-dibraies.jpeg",
-  },
-];
+
 
 export default class Card {
   constructor(data) {
@@ -109,14 +81,3 @@ export default class Card {
     return this.element;
   }
 }
-
-function renderInitialCards() {
-  for (const data of initialCards) {
-    const elementsSectionCard = document.querySelector(".elements");
-
-    const cardElement = new Card(data).generateCard();
-    elementsSectionCard.append(cardElement);
-  }
-}
-
-renderInitialCards();
