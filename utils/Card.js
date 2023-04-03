@@ -1,9 +1,10 @@
-
+import PopupWhitImage from "./PopupWithImage.js";
 
 export default class Card {
   constructor(data) {
     this._name = data.name;
     this._src = data.src;
+    this._modalWithImage = new PopupWhitImage(".modal");
   }
 
   _getTemplateCard() {
@@ -26,19 +27,7 @@ export default class Card {
   }
 
   _handleOpenExpandedImage() {
-    this.elementImageCard = this._src;
-    this.elementTitleCard = this._name;
-
-    const modalexpandedImage = document.querySelector(".modal");
-    this.containerImage = modalexpandedImage.querySelector(
-      ".modal__image-card"
-    ).src = this.elementImageCard;
-
-    this.ContainerTitle = modalexpandedImage.querySelector(
-      ".modal__title-text"
-    ).textContent = this.elementTitleCard;
-
-    modalexpandedImage.classList.toggle("modal_opened");
+    this._modalWithImage.open(this._src, this._name);
   }
 
   _setEventListeners() {
