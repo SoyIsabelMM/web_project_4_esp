@@ -46,8 +46,6 @@ export const btnEditInfoProfile = document.querySelector(
 
 export const inputName = document.querySelector("#name");
 export const inputAboutMe = document.querySelector("#about-me");
-export const profileName = document.querySelector(".profile__info-name");
-export const profileAboutMe = document.querySelector(".profile__info-about");
 
 /**Constantes para utilizarlas en el funcionamiento de añadir nuevas imagenes */
 export const btnOpenFormAddImage = document.querySelector(".profile__add-btn");

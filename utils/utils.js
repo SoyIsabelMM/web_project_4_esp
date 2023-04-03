@@ -7,26 +7,33 @@ import {
   btnEditInfoProfile,
   inputName,
   inputAboutMe,
-  profileName,
-  profileAboutMe,
   btnOpenFormAddImage,
   addPictureFormClose,
 } from "./constants.js";
 import Popup from "./Popup.js";
 import PopupWithForm from "./popupWithForm.js";
+import UserInfo from "./UserInfo.js";
 
 const popupFormProfile = new PopupWithForm("#edit-profile-form", editProfile);
 const closePopupEditProfile = new Popup("#edit-profile-form");
 
 popupFormProfile.setEventListeners();
 
+const userInfo = new UserInfo({
+  nameUserSelector: ".profile__info-name",
+  jobUserSelector: ".profile__info-about",
+});
+
 /**
  *Abre y trae los datos del contenedor de perfil.
  */
 function openPopupProfile() {
   popupFormProfile.open();
-  inputName.value = profileName.textContent;
-  inputAboutMe.value = profileAboutMe.textContent;
+
+  const currentUserInfo = userInfo.getUserInfo();
+
+  inputName.value = currentUserInfo.name;
+  inputAboutMe.value = currentUserInfo.job;
 }
 
 /**
@@ -35,8 +42,11 @@ function openPopupProfile() {
  */
 function editProfile() {
   closePopupEditProfile.close();
-  profileName.textContent = inputName.value;
-  profileAboutMe.textContent = inputAboutMe.value;
+
+  userInfo.setUserInfo({
+    name: inputName.value,
+    job: inputAboutMe.value,
+  });
 }
 
 /**Cierre del modal de expandedImage, se aplica al boton X */
