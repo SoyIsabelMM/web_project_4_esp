@@ -7,6 +7,7 @@ import {
   settingElement,
   selector,
 } from "../src/utils/constants.js";
+import addEventListener from "../src/utils/utils.js"
 
 const renderInitialCards = new Section(
   {
@@ -33,3 +34,5 @@ renderInitialCards.renderer();
     formValidator.enableValidation();
   });
 })();
+
+addEventListener();
