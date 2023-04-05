@@ -41,21 +41,9 @@ module.exports = {
 
   module: {
     rules: [
-      // esto es un array de reglas
-
-      // añádele un objeto que contenga reglas para Babel
-
       {
-        // una expresión regular que busca todos los archivos js
-
         test: /\.js$/,
-
-        // todos los archivos deben ser procesados por babel-loader
-
         loader: "babel-loader",
-
-        // excluye la carpeta node_modules, no necesitamos procesar archivos en ella
-
         exclude: "/node_modules/",
       },
 
@@ -76,12 +64,8 @@ module.exports = {
           "postcss-loader",
         ],
       },
-
       {
-        // añade la regla para el procesamiento de archivos
-
         test: /\.(png|svg|jpg|jpeg|gif|woff(2)?|eot|ttf|otf)$/,
-
         type: "asset/resource",
       },
     ],
