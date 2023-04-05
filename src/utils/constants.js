@@ -62,7 +62,3 @@ export const settingElement = {
 };
 
 export const selector = ".elements";
-
-const popupNewImage = document.querySelector("#add-picture-form");
-export const popupNewImageOverlay =
-  popupNewImage.querySelector(".popup__overlay");

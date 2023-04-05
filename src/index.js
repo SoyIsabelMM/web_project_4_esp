@@ -1,7 +1,12 @@
-import Card from "../utils/Card.js";
-import FormValidator from "./FormValidator.js";
-import Section from "../components/Section.js";
-import { initialCards, settingElement, selector } from "../utils/constants.js";
+import "./styles/index.css";
+import Card from "../src/utils/Card.js";
+import FormValidator from "../src/pages/FormValidator.js";
+import Section from "../src/components/Section.js";
+import {
+  initialCards,
+  settingElement,
+  selector,
+} from "../src/utils/constants.js";
 
 const renderInitialCards = new Section(
   {

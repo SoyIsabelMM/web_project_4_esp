@@ -1,5 +1,4 @@
 import Card from "./Card.js";
-import { popupNewImageOverlay } from "./constants.js";
 import {
   elementsSectionCard,
   modalExpandedImage,
@@ -99,7 +98,6 @@ export default function addEventListeners() {
   btnEditInfoProfile.addEventListener("click", openPopupProfile);
   btnOpenFormAddImage.addEventListener("click", openPopupAddImage);
   addPictureFormClose.addEventListener("click", closePopupAddImage);
-  popupNewImageOverlay.addEventListener("click", closePopupAddImage);
 
   document.addEventListener("keydown", closeModal);
 }
