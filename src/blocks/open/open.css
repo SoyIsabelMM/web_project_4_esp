@@ -1,4 +1,4 @@
-.modal_opened {
+.open {
     visibility: hidden;
     opacity: 0;
 }

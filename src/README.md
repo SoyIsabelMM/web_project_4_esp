@@ -52,6 +52,12 @@ Hemos actualizado nuestro proyecto, agregando funcionalidades a los botones de a
 
 **Delete** agregamos con *CSS* un nuevo botón a las tarjetas de imágenes con el icono de papelera, a este botón le dimos vida con **JavaScript** haciendo que cuando el usuario pueda eliminar las tarjeras. 
 
+<<<<<<< HEAD:README.md
 **Validación** Se realizo código de validación para comprobar la información ingresada en los formularios, aquí refactorizamos y utilizamos clases para envolver el código y sea independiente.
+=======
+## Ajustes
+
+Hemos refactorizado el código, ahora toda la logica la hemos encapsulado en clases, tambien minimizamos el código utilizando webpack.
+>>>>>>> Develop:src/README.md
 
 **Enlace para GitHub:**  https://github.com/SoyIsabelMM/web_project_4_esp

@@ -4,57 +4,45 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./pages/index.css" />
     <title>Around</title>
   </head>
   <body>
     <div class="page">
       <header class="header">
-        <img
-          class="header__logo-header"
-          src="./images/header-logo.png"
-          alt="Logo Around, alrededor de los estados unidos"
-        />
+        <img class="header__logo-header" src=
+        "<%=require("./images/header-logo.png")%>" alt="Logo Around, alrededor
+        de los estados unidos" />
         <div class="divider-section"></div>
       </header>
       <main class="content">
         <section class="profile">
-          <img
-            class="profile__image"
-            src="./images/image-profile.jpeg"
-            alt="Foto de perfil"
-          />
+          <img class="profile__image" src=
+          "<%=require("./images/image-profile.jpeg")%>" alt="Foto de perfil" />
           <div class="profile__info">
             <button class="profile__info-edit-btn">
-              <img
-                class="profile__info-icon-edit"
-                src="./images/icon-edit.png"
-                alt="Botón editar perfil"
+              <img class="profile__info-icon-edit" src=
+              "<%=require("./images/icon-edit.png")%>" alt="Botón editar perfil"
               />
             </button>
             <h1 class="profile__info-name">Jacques Cousteau</h1>
             <h2 class="profile__info-about">Explorador</h2>
           </div>
           <button class="profile__add-btn">
-            <img
-              class="profile__add-btn-image"
-              src="./images/add-btn.png"
-              alt="Botón para agregar imagenes"
-            />
+            <img class="profile__add-btn-image" src=
+            "<%=require("./images/add-btn.png")%>" alt="Botón para agregar
+            imagenes" />
           </button>
         </section>
         <section class="elements">
           <!-- Aqui van a ir las 6 tarjetas iniciales de nuestro proyecto-->
         </section>
 
-        <section class="popup popup_opened" id="edit-profile-form">
+        <section class="popup open" id="edit-profile-form">
           <div class="popup__overlay"></div>
           <div class="popup__container">
             <button class="popup__container-close-popup">
-              <img
-                src="./images/close-icon.png"
-                alt="botón para cerrar cuadro emergente"
-                class="popup__container-close-icon"
+              <img src= "<%=require("./images/close-icon.png")%>" alt="botón
+              para cerrar cuadro emergente" class="popup__container-close-icon"
               />
             </button>
             <h3 class="popup__container-text">Editar perfil</h3>
@@ -87,14 +75,12 @@
           </div>
         </section>
 
-        <section class="popup popup_opened" id="add-picture-form">
+        <section class="popup open" id="add-picture-form">
           <div class="popup__overlay"></div>
           <div class="popup__container">
             <button class="popup__container-close-popup">
-              <img
-                src="./images/close-icon.png"
-                alt="botón para cerrar cuadro emergente"
-                class="popup__container-close-icon"
+              <img src= "<%=require("./images/close-icon.png")%>" alt="botón
+              para cerrar cuadro emergente" class="popup__container-close-icon"
               />
             </button>
             <h3 class="popup__container-text">Nuevo Lugar</h3>
@@ -126,13 +112,10 @@
           </div>
         </section>
 
-        <section class="modal modal_opened">
+        <section class="modal open">
           <div class="modal__container">
-            <img
-              src="./images/close-icon.png"
-              alt="icon para cerra la imágen"
-              class="modal__container-close"
-            />
+            <img src= "<%=require("./images/close-icon.png")%>" alt="icon para
+            cerra la imágen" class="modal__container-close" />
             <img class="modal__image-card" src=" " alt=" " id="modal" />
             <h3 class="modal__title-text"></h3>
           </div>
@@ -146,24 +129,17 @@
     <template id="card-template">
       <div class="elements__card-container">
         <button class="elements__card-container-btn-delete">
-          <img
-            class="elements__card-container-icon-delete"
-            src="./images/icon-delete.png"
-            alt="icon eliminar imágen"
+          <img class="elements__card-container-icon-delete" src=
+          "<%=require("./images/icon-delete.png")%>" alt="icon eliminar imágen"
           />
         </button>
         <img class="elements__card-container-image" src=" " alt=" " />
         <div class="elements__card-container-footing">
           <h3 class="elements__card-container-footing-title"></h3>
-          <img
-            class="elements__card-container-footing-btn"
-            src="./images/btn-like.png"
-            alt="like inactivo"
-          />
+          <img class="elements__card-container-footing-btn" src=
+          "<%=require("./images/btn-like.png")%>" alt="like inactivo" />
         </div>
       </div>
     </template>
-    <script type="module" src="./scripts/script.js"></script>
-    <script type="module" src="./scripts/utils.js"></script>
   </body>
 </html>
