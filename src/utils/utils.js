@@ -101,5 +101,3 @@ export default function addEventListeners() {
 
   document.addEventListener("keydown", closeModal);
 }
-
-addEventListeners();
