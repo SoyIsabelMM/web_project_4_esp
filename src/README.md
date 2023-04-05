@@ -52,8 +52,8 @@ Hemos actualizado nuestro proyecto, agregando funcionalidades a los botones de a
 
 **Delete** agregamos con *CSS* un nuevo botón a las tarjetas de imágenes con el icono de papelera, a este botón le dimos vida con **JavaScript** haciendo que cuando el usuario pueda eliminar las tarjeras. 
 
-## Ajustes y Próximas actualizaciones
+## Ajustes
 
-Al momento de elimanar y agregar una tarjeta nos encontramos con un pequeño inconveniente de diseño y comportamiento de los elementos tarjetas, ya que al eliminarlos no salian en orden sino que elimina primero al centro y despues no deslizaba, esto sucedia de igual manera cuando agregabamos nuevas imagenes, tuvimos que eliminar el justify-content y agregarle margenes, esperamos poder solucionar esto de mejor manera en la proxima actualización, en vez de usar FLEXBOX podemos probar con GRID-Layout. 
+Hemos refactorizado el código, ahora toda la logica la hemos encapsulado en clases, tambien minimizamos el código utilizando webpack.
 
 **Enlace para GitHub:**  https://github.com/SoyIsabelMM/web_project_4_esp
