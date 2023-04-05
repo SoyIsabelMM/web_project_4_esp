@@ -1,30 +1,38 @@
+// Import your images
+import valleYosemite from '../images/valle-yosemite.jpeg';
+import lagoLouise from '../images/Lago-Louise.jpeg';
+import montanasCalvas from '../images/montanas-calvas.jpeg';
+import latemar from '../images/latemar.jpeg';
+import parqueVanoise from '../images/parque-vanoise.jpeg';
+import lagoDibraies from '../images/lago-dibraies.jpeg';
+
 /**
- * Constante que almacena todas las imágenes que aparecenal inicio de nuestro proyecto
+ * Constante que almacena todas las imágenes que aparecen al inicio de nuestro proyecto
  */
 export const initialCards = [
   {
     name: "Valle de Yosemite",
-    src: "./images/valle-yosemite.jpeg",
+    src: valleYosemite,
   },
   {
     name: "Lago Louise",
-    src: "./images/Lago-Louise.jpeg",
+    src: lagoLouise,
   },
   {
     name: "Montañas Calvas",
-    src: "./images/montanas-calvas.jpeg",
+    src: montanasCalvas,
   },
   {
     name: "Latemar",
-    src: "./images/latemar.jpeg",
+    src: latemar,
   },
   {
     name: "Parque Nacional de la Vanoise",
-    src: "./images/parque-vanoise.jpeg",
+    src: parqueVanoise,
   },
   {
     name: "Lago di Braies",
-    src: "./images/lago-dibraies.jpeg",
+    src: lagoDibraies,
   },
 ];
 
