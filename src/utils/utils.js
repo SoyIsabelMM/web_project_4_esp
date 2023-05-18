@@ -13,8 +13,6 @@ import Popup from "./Popup.js";
 import PopupWithForm from "./popupWithForm.js";
 import UserInfo from "./UserInfo.js";
 
-export const basePath = process.env.NODE_ENV == 'development' ? "" : "/web_project_4_esp/";
-
 const popupFormProfile = new PopupWithForm("#edit-profile-form", editProfile);
 const closePopupEditProfile = new Popup("#edit-profile-form");
 

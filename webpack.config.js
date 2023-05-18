@@ -18,7 +18,7 @@ module.exports = {
 
     filename: "main.js",
 
-    publicPath: "/",
+    publicPath: "auto",
   },
 
   target: ["web", "es5"],
@@ -72,7 +72,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html", // ruta a nuestro archivo index.html
-      publicPath: process.env.NODE_ENV == 'development' ? '/' : '/web_project_4_esp/',
+      // publicPath: process.env.NODE_ENV == 'development' ? '/' : '/web_project_4_esp/',
     }),
 
     new CleanWebpackPlugin(),

@@ -1,5 +1,4 @@
 import PopupWhitImage from "./PopupWithImage.js";
-import { basePath } from "./utils.js";
 
 export default class Card {
   constructor(data) {
@@ -25,10 +24,6 @@ export default class Card {
     this.element
       .querySelector(".elements__card-container-footing-btn")
       .classList.toggle("elements__card-container-footing-btn_active");
-
-this.computedStyle = window.getComputedStyle(this.element);
-this.backgroundImage = this.computedStyle.getPropertyValue("background-image");
-this.modifiedBackgroundImage = this.backgroundImage.replace(basePath+"url(../../../../images/like-btn-active.png)");
   }
 
   _handleOpenExpandedImage() {
@@ -67,6 +62,7 @@ this.modifiedBackgroundImage = this.backgroundImage.replace(basePath+"url(../../
     );
 
     this._setEventListeners();
+
     this.elementImageCard.src = this._src;
     this.elementImageCard.alt = this._name;
     this.elementTitleCard.textContent = this._name;

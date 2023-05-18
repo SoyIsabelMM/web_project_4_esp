@@ -7,14 +7,14 @@ import {
   settingElement,
   selector,
 } from "../src/utils/constants.js";
-import { addEventListeners, basePath } from "../src/utils/utils.js"
+import { addEventListeners } from "../src/utils/utils.js"
 
 const renderInitialCards = new Section(
   {
     items: initialCards.map((evt) => {
       return {
         name: evt.name,
-        src: basePath+evt.src
+        src: evt.src
       }
     }),
     renderer: (cardItem) => {
