@@ -11,10 +11,10 @@ import { addEventListeners, basePath } from "../src/utils/utils.js"
 
 const renderInitialCards = new Section(
   {
-    items: initialCards.map((e) => {
+    items: initialCards.map((evt) => {
       return {
-        name: e.name,
-        src: basePath+e.src
+        name: evt.name,
+        src: basePath+evt.src
       }
     }),
     renderer: (cardItem) => {
