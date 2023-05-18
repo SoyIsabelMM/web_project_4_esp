@@ -7,11 +7,16 @@ import {
   settingElement,
   selector,
 } from "../src/utils/constants.js";
-import addEventListener from "../src/utils/utils.js"
+import { addEventListeners, basePath } from "../src/utils/utils.js"
 
 const renderInitialCards = new Section(
   {
-    items: initialCards,
+    items: initialCards.map((e) => {
+      return {
+        name: e.name,
+        src: basePath+e.src
+      }
+    }),
     renderer: (cardItem) => {
       const card = new Card(cardItem, "#card-Template");
       const cardElement = card.generateCard();
@@ -35,4 +40,4 @@ renderInitialCards.renderer();
   });
 })();
 
-addEventListener();
+addEventListeners();

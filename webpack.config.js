@@ -72,7 +72,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html", // ruta a nuestro archivo index.html
-      baseUrl: process.env.NODE_ENV == 'development' ? '/' : '/web_project_4_esp/'
+      publicPath: process.env.NODE_ENV == 'development' ? '/' : '/web_project_4_esp/',
     }),
 
     new CleanWebpackPlugin(),

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack serve",
+    "dev": "NODE_ENV=development webpack serve",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
