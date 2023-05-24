@@ -1,8 +1,16 @@
 .profile__image {
+    position: relative;
     height: 120px;
     width: 120px;
     border-radius: 120px;
-    margin-top: 36.25px;
+    margin-top: 36.25px; 
+    transition: 0.3 ease all;
+    background-color: inherit;
+}
+
+.profile__image:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 @media screen and (min-width: 320px) and (max-width: 898px) {
