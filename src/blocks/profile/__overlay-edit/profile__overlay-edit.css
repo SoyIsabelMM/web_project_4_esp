@@ -9,13 +9,11 @@
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
-  visibility: hidden;
   transition: 0.3 ease all;
 }
 
 .profile__overlay-edit:hover {
     opacity: 1;
-    visibility: visible;
 }
 
 @media screen and (min-width: 320px) and (max-width: 898px) {
