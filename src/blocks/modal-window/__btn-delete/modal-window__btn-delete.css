@@ -1,0 +1,16 @@
+.modal-window__btn-delete {
+  background-color: black;
+  width: 358px;
+  height: 50px;
+  border-radius: 2px;
+  position: absolute;
+  cursor: pointer;
+  border: none;
+  top: 95px;
+  left: 36px;
+  color: white;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+}

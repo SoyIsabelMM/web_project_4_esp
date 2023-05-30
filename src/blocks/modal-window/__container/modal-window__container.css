@@ -1,0 +1,7 @@
+.modal-window__container {
+  position: relative;
+  width: 430px;
+  height: 181px;
+  background: #ffffff;
+  border-radius: 10px;
+}

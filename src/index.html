@@ -121,10 +121,47 @@
 
         <section class="modal open">
           <div class="modal__container">
-            <img src= "<%=require("./images/close-icon.png")%>" alt="icon para
-            cerra la imágen" class="modal__container-close" />
+            <img class="modal__container-close" src=
+            "<%=require("./images/close-icon.png")%>" alt="icon para cerra la
+            imágen" />
             <img class="modal__image-card" src=" " alt=" " id="modal" />
             <h3 class="modal__title-text"></h3>
+          </div>
+        </section>
+
+        <section class="modal-window open">
+          <div class="modal-window__overlay"></div>
+
+          <div class="modal-window__container">
+            <img class="modal-window__btn-close" src=
+            "<%=require("./images/close-icon.png")%>" alt="icon para cerra la
+            imágen" />
+            <div class="modal-window__form-delete-card">
+              <h3 class="modal-window__modal-title">¿Estás seguro?</h3>
+              <button class="modal-window__btn-delete">Si</button>
+            </div>
+          </div>
+
+          <div class="modal-window__change-image">
+            <img class="modal-window__close-change" src=
+            "<%=require("./images/close-icon.png")%>" alt="icon para cerra la
+            imágen" />
+
+            <form class="modal-window__form-change-image" novalidate>
+              <h3 class="modal-window__title-change">Cambiar foto de perfil</h3>
+              <fieldset class="modal-window__fiel-change-image">
+                <input
+                  type="url"
+                  class="modal-window__input-url-change"
+                  placeholder="https://somewebsite.com/someimage.jpg"
+                  id="url-change"
+                  required
+                />
+              </fieldset>
+              <button class="modal-window__keep-btn" type="submit">
+                Guardar
+              </button>
+            </form>
           </div>
         </section>
       </main>

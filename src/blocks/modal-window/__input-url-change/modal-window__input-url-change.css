@@ -1,0 +1,14 @@
+.modal-window__input-url-change {
+  width: 358px;
+  height: auto;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  outline: none;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  padding-bottom: 13.13px;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 400;
+  margin: 0 36px 48px 36px;
+}

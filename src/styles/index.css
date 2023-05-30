@@ -51,3 +51,16 @@
 @import url(../blocks/modal/__container-close/modal__container-close.css);
 @import url(../blocks/modal/__image-card/modal__image-card.css);
 @import url(../blocks/modal/__title-text/modal__title-text.css);
+@import url(../blocks/modal-window/modal-window.css);
+@import url(../blocks/modal-window/__container/modal-window__container.css);
+@import url(../blocks/modal-window/__overlay/modal-window__overlay.css);
+@import url(../blocks/modal-window/__btn-close/modal-window__btn-close.css);
+@import url(../blocks/modal-window/__modal-title/modal-window__modal-title.css);
+@import url(../blocks/modal-window/__btn-delete/modal-window__btn-delete.css);
+@import url(../blocks/modal-window/__change-image/modal-window__change-image.css);
+@import url(../blocks/modal-window/__close-change/modal-window__close-change.css);
+@import url(../blocks/modal-window/__form-change-image/modal-window__form-change-image.css);
+@import url(../blocks/modal-window/__title-change/modal-window__title-change.css);
+@import url(../blocks/modal-window/__fiel-change-image/modal-window__fiel-change-image.css);
+@import url(../blocks/modal-window/__input-url-change/modal-window__input-url-change.css);
+@import url(../blocks/modal-window/__keep-btn/modal-window__keep-btn.css);
