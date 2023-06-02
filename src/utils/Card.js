@@ -4,6 +4,7 @@ export default class Card {
   constructor(data) {
     this._name = data.name;
     this._src = data.src;
+    this._canBeDelete = true;
     this._modalWithImage = new PopupWhitImage(".modal");
   }
 
@@ -39,17 +40,26 @@ export default class Card {
       this._handleLikeIcon();
     });
 
-    this.btnDelete = this.element.querySelector(
-      ".elements__card-container-btn-delete"
-    );
-
-    this.btnDelete.addEventListener("click", () => {
-      this._handleDeleteCard();
-    });
-
     this.elementImageCard.addEventListener("click", () => {
       this._handleOpenExpandedImage();
     });
+
+    if (!this._canBeDelete) {
+      this.btnDelete = this.element.querySelector(
+        ".elements__card-container-btn-delete"
+      );
+  
+      this.btnDelete.addEventListener("click", () => {
+        this._handleDeleteCard();
+
+      });
+    } else {
+      const deleteBtn = this.element.querySelector(
+        ".elements__card-container-btn-delete"
+      );
+
+      deleteBtn.style.display = "none"; 
+    }
   }
 
   generateCard() {
