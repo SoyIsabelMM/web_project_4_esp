@@ -4,7 +4,7 @@ export default class Card {
   constructor(data) {
     this._name = data.name;
     this._src = data.src;
-    this._canBeDelete = true;
+    this._canBeDelete = data.canBeDelete;
     this._modalWithImage = new PopupWhitImage(".modal");
   }
 
@@ -44,7 +44,7 @@ export default class Card {
       this._handleOpenExpandedImage();
     });
 
-    if (!this._canBeDelete) {
+    if (this._canBeDelete) {
       this.btnDelete = this.element.querySelector(
         ".elements__card-container-btn-delete"
       );

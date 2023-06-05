@@ -14,7 +14,8 @@ const renderInitialCards = new Section(
     items: initialCards.map((evt) => {
       return {
         name: evt.name,
-        src: evt.src
+        src: evt.src,
+        canBeDelete: false,
       }
     }),
     renderer: (cardItem) => {
