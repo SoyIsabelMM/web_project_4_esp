@@ -85,7 +85,7 @@ function addNewCardElement() {
   const inputTitlePlace = document.querySelector("#title-place");
   const inputNewImage = document.querySelector("#new-image");
 
-  const data = { name: inputTitlePlace.value, src: inputNewImage.value, canBeDelete: true };
+  const data = { name: inputTitlePlace.value, link: inputNewImage.value, canBeDelete: true };
   const cardElement = new Card(data).generateCard();
 
   elementsSectionCard.prepend(cardElement);

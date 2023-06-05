@@ -3,7 +3,7 @@ import PopupWhitImage from "./PopupWithImage.js";
 export default class Card {
   constructor(data) {
     this._name = data.name;
-    this._src = data.src;
+    this._link = data.link;
     this._canBeDelete = data.canBeDelete;
     this._modalWithImage = new PopupWhitImage(".modal");
   }
@@ -28,7 +28,7 @@ export default class Card {
   }
 
   _handleOpenExpandedImage() {
-    this._modalWithImage.open(this._src, this._name);
+    this._modalWithImage.open(this._link, this._name);
   }
 
   _setEventListeners() {
@@ -73,7 +73,7 @@ export default class Card {
 
     this._setEventListeners();
 
-    this.elementImageCard.src = this._src;
+    this.elementImageCard.src = this._link;
     this.elementImageCard.alt = this._name;
     this.elementTitleCard.textContent = this._name;
 

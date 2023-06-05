@@ -8,13 +8,18 @@ import {
   selector,
 } from "../src/utils/constants.js";
 import { addEventListeners } from "../src/utils/utils.js"
+import Api from "./utils/Api";
+
+(async function() {
+const api =  new Api();
+const cards = await api.getCards();
 
 const renderInitialCards = new Section(
   {
-    items: initialCards.map((evt) => {
+    items: cards.map((evt) => {
       return {
         name: evt.name,
-        src: evt.src,
+        link: evt.link,
         canBeDelete: false,
       }
     }),
@@ -42,3 +47,5 @@ renderInitialCards.renderer();
 })();
 
 addEventListeners();
+
+})();
