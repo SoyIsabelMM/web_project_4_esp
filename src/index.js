@@ -3,7 +3,6 @@ import Card from "../src/utils/Card.js";
 import FormValidator from "../src/pages/FormValidator.js";
 import Section from "../src/components/Section.js";
 import {
-  initialCards,
   settingElement,
   selector,
 } from "../src/utils/constants.js";
