@@ -12,6 +12,7 @@ import {
 import Popup from "./Popup.js";
 import PopupWithForm from "./popupWithForm.js";
 import UserInfo from "./UserInfo.js";
+import Api from "./Api.js";
 
 const popupFormProfile = new PopupWithForm("#edit-profile-form", editProfile);
 const closePopupEditProfile = new Popup("#edit-profile-form");
@@ -33,20 +34,30 @@ function openPopupProfile() {
   const currentUserInfo = userInfo.getUserInfo();
 
   inputName.value = currentUserInfo.name;
-  inputAboutMe.value = currentUserInfo.job;
+  inputAboutMe.value = currentUserInfo.about;
 }
 
 /**
  * Cambio de datos al editar perfil y queden almacenado
  *los valores nuevos
  */
-function editProfile() {
+async function editProfile() {
   closePopupEditProfile.close();
 
   userInfo.setUserInfo({
     name: inputName.value,
-    job: inputAboutMe.value,
+    about: inputAboutMe.value,
   });
+
+  const api = new Api();
+  try{
+    const res = await api.saveDataToServer(inputName.value, inputAboutMe.value);
+    
+    return res;
+  } catch(err) {
+    console.log(err);
+  }
+  
 }
 
 /**Cierre del modal de expandedImage, se aplica al boton X */

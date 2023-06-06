@@ -53,7 +53,7 @@ import UserInfo from "./utils/UserInfo";
 
       userInfo.setUserInfo({
         name: userInfoFromServer.name,
-        job: userInfoFromServer.about,
+        about: userInfoFromServer.about,
         avatar: userInfoFromServer.avatar,
       });
     }
