@@ -21,6 +21,7 @@ popupFormProfile.setEventListeners();
 const userInfo = new UserInfo({
   nameUserSelector: ".profile__info-name",
   jobUserSelector: ".profile__info-about",
+  avatarSelector: ".profile__image",
 });
 
 /**
