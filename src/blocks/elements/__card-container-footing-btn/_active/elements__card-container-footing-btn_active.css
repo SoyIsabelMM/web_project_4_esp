@@ -1,6 +1,7 @@
 .elements__card-container-footing-btn_active {
   position: absolute;
   background-image: url(../../../../images/like-btn-active.png);
+  top: 23px;
 }
 
 .elements__card-container-footing-btn_active:hover {
