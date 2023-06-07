@@ -10,7 +10,7 @@ export default class Api {
         "Content-Type": "application/json",
       },
       method,
-      body: JSON.stringify(body)
+      body: JSON.stringify(body),
     });
 
     if (res.ok) {
@@ -59,6 +59,23 @@ export default class Api {
       return res;
     } catch (err) {
       console.log(err);
+    }
+  }
+
+  async addNewCardToServer(name, link) {
+    try {
+        const res = await this._useFetch(
+            "https://around.nomoreparties.co/v1/web_es_05/cards",
+            "POST",
+            {
+              name: name,
+              link: link
+            }
+          );
+          return res;
+
+    } catch(err) {
+        console.log(err)
     }
   }
 }

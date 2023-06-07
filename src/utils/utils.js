@@ -57,7 +57,6 @@ async function editProfile() {
   } catch(err) {
     console.log(err);
   }
-  
 }
 
 /**Cierre del modal de expandedImage, se aplica al boton X */
@@ -97,11 +96,23 @@ function addNewCardElement() {
   const inputTitlePlace = document.querySelector("#title-place");
   const inputNewImage = document.querySelector("#new-image");
 
-  const data = { name: inputTitlePlace.value, link: inputNewImage.value, canBeDelete: true };
-  const cardElement = new Card(data).generateCard();
+  const data = { name: inputTitlePlace.value, link: inputNewImage.value };
 
-  elementsSectionCard.prepend(cardElement);
-  openPopupAddImage();
+  const api = new Api();
+
+  api.addNewCardToServer(data.name, data.link)
+  .then(res => {
+    data.canBeDelete = true;
+    const cardElement = new Card(data).generateCard();
+
+    elementsSectionCard.prepend(cardElement);
+    
+    inputTitlePlace.value = "";
+    inputNewImage.value = "";
+  })
+  .catch(err => {
+    console.log(err);
+  })
 }
 
 export function addEventListeners() {
