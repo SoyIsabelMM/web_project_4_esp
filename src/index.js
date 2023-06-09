@@ -17,6 +17,7 @@ import UserInfo from "./utils/UserInfo";
         return {
           name: evt.name,
           link: evt.link,
+          _id: evt._id,
           canBeDelete: false,
         };
       }),

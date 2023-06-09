@@ -38,7 +38,7 @@ export default class Api {
         "https://around.nomoreparties.co/v1/web_es_05/cards",
         "GET"
       );
-
+console.log(res);
       return res;
     } catch (err) {
       console.log(err);
@@ -76,6 +76,16 @@ export default class Api {
 
     } catch(err) {
         console.log(err)
+    }
+  }
+
+  async deleteCardFromServer(cardId) {
+    try{
+      const res = await this._useFetch(`https://around.nomoreparties.co/v1/web_es_05/cards/${cardId}`, "DELETE")
+
+      return res;
+    } catch(err){
+      console.log(err);
     }
   }
 }

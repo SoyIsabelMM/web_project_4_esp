@@ -101,8 +101,9 @@ function addNewCardElement() {
   const api = new Api();
 
   api.addNewCardToServer(data.name, data.link)
-  .then(res => {
+  .then(response => {
     data.canBeDelete = true;
+    data._id = response._id;
     const cardElement = new Card(data).generateCard();
 
     elementsSectionCard.prepend(cardElement);
