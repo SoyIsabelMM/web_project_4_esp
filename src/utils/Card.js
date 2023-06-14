@@ -1,16 +1,15 @@
-import Api from "./Api.js";
 import PopupWhitImage from "./PopupWithImage.js";
 
 export default class Card {
-  constructor(data) {
-    this._name = data.name;
-    this._link = data.link;
-    this._id = data._id;
-    this._canBeDelete = data.canBeDelete;
+  constructor({ name, link, _id, canBeDelete }, { api, modalConfirmAction }) {
+    this._name = name;
+    this._link = link;
+    this._id = _id;
+    this._canBeDelete = canBeDelete;
 
-    this._modalWithImage = new PopupWhitImage(".modal");
-
-    this._api = new Api();
+    this._popupWithImage = new PopupWhitImage(".modal");
+    this._api = api;
+    this._modalConfirmAction = modalConfirmAction;
   }
 
   _getTemplateCard() {
@@ -48,42 +47,19 @@ export default class Card {
   }
 
   _handleOpenExpandedImage() {
-    this._modalWithImage.open(this._link, this._name);
+    this._popupWithImage.open(this._link, this._name);
   }
 
-  _handleOpenFormDelete() {
-    this.containerForms = document.querySelector(".modal-window");
-    this.formDeleteCard = this.containerForms.querySelector(".modal-window__container");
-    this.btnConfirm = this.formDeleteCard.querySelector(".modal-window__btn-delete");
-    
-    this.containerForms.classList.remove("open");
-    this.formDeleteCard.classList.remove("open");
-  }
-
-  _handleCloseBtnConfirmYes() {
-
-    // this.containerForms.classList.add("open");
-    // this.formDeleteCard.classList.add("open");
-  }
-
-  _handleDeleteCardToServer() {
-    const confirmation = this._handleOpenFormDelete();
-
-    if (confirmation) {
-      this._api
-        .deleteCardFromServer(this._id)
-        .then(() => {
-          this.btnConfirm.addEventListener("click", () => {
-            console.log("aqui estoy");
-          });
-        })
-        .then(() => {
-          this.element.remove();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+  _deleteCard() {
+    this._api
+      .deleteCardFromServer(this._id)
+      .then(() => {
+        this.element.remove();
+        this._modalConfirmAction.close();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   _setEventListeners() {
@@ -92,7 +68,7 @@ export default class Card {
     );
 
     this.likeBtn.addEventListener("click", () => {
-      this._handleLikeIcon();
+      this._handleLikeIconToServer();
     });
 
     this.elementImageCard.addEventListener("click", () => {
@@ -105,7 +81,7 @@ export default class Card {
       );
 
       this.btnDelete.addEventListener("click", () => {
-        this._handleDeleteCardToServer();
+        this._modalConfirmAction.open(this._deleteCard.bind(this));
       });
     } else {
       const deleteBtn = this.element.querySelector(

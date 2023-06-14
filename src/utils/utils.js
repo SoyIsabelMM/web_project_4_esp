@@ -13,6 +13,10 @@ import Popup from "./Popup.js";
 import PopupWithForm from "./popupWithForm.js";
 import UserInfo from "./UserInfo.js";
 import Api from "./Api.js";
+import ModalConfirmAction from "./ModalConfirmAction.js";
+
+export const api = new Api();
+export const modalConfirmAction = new ModalConfirmAction();
 
 const popupFormProfile = new PopupWithForm("#edit-profile-form", editProfile);
 const closePopupEditProfile = new Popup("#edit-profile-form");
@@ -49,12 +53,11 @@ async function editProfile() {
     about: inputAboutMe.value,
   });
 
-  const api = new Api();
-  try{
+  try {
     const res = await api.saveDataToServer(inputName.value, inputAboutMe.value);
-    
+
     return res;
-  } catch(err) {
+  } catch (err) {
     console.log(err);
   }
 }
@@ -100,20 +103,24 @@ function addNewCardElement() {
 
   const api = new Api();
 
-  api.addNewCardToServer(data.name, data.link)
-  .then(response => {
-    data.canBeDelete = true;
-    data._id = response._id;
-    const cardElement = new Card(data).generateCard();
+  api
+    .addNewCardToServer(data.name, data.link)
+    .then((response) => {
+      data.canBeDelete = true;
+      data._id = response._id;
+      const cardElement = new Card(data, {
+        api,
+        modalConfirmAction,
+      }).generateCard();
 
-    elementsSectionCard.prepend(cardElement);
-    
-    inputTitlePlace.value = "";
-    inputNewImage.value = "";
-  })
-  .catch(err => {
-    console.log(err);
-  })
+      elementsSectionCard.prepend(cardElement);
+
+      inputTitlePlace.value = "";
+      inputNewImage.value = "";
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 export function addEventListeners() {

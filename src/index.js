@@ -3,26 +3,32 @@ import Card from "../src/utils/Card.js";
 import FormValidator from "../src/pages/FormValidator.js";
 import Section from "../src/components/Section.js";
 import { settingElement, selector } from "../src/utils/constants.js";
-import { addEventListeners } from "../src/utils/utils.js";
-import Api from "./utils/Api";
+import {
+  addEventListeners,
+  api,
+  modalConfirmAction,
+} from "../src/utils/utils.js";
 import UserInfo from "./utils/UserInfo";
 
 (async function () {
-  const api = new Api();
   const cards = await api.getCards();
+  const userInfoFromServer = await api.getUserInfoFromServer();
+  const idUser = userInfoFromServer._id;
 
   const renderInitialCards = new Section(
     {
-      items: cards.map((evt) => {
+      items: cards.map((card) => {
+        const canBeDelete = card.owner._id == idUser;
+
         return {
-          name: evt.name,
-          link: evt.link,
-          _id: evt._id,
-          canBeDelete: false,
+          name: card.name,
+          link: card.link,
+          _id: card._id,
+          canBeDelete: canBeDelete,
         };
       }),
       renderer: (cardItem) => {
-        const card = new Card(cardItem, "#card-Template");
+        const card = new Card(cardItem, { api, modalConfirmAction });
         const cardElement = card.generateCard();
 
         renderInitialCards.addItem(cardElement);
@@ -49,8 +55,6 @@ import UserInfo from "./utils/UserInfo";
         jobUserSelector: ".profile__info-about",
         avatarSelector: ".profile__image",
       });
-      const api = new Api();
-      const userInfoFromServer = await api.getUserInfoFromServer();
 
       userInfo.setUserInfo({
         name: userInfoFromServer.name,
@@ -58,7 +62,7 @@ import UserInfo from "./utils/UserInfo";
         avatar: userInfoFromServer.avatar,
       });
     }
-    
+
     infoProfile();
   })();
 
