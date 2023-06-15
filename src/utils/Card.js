@@ -34,12 +34,32 @@ export default class Card {
         "elements__card-container-footing-btn_active"
       )
     ) {
-      this.likesCountElement.textContent = (currentLikes + 1).toString();
+      this._api
+        .addLikeFromCard(this._id)
+        .then(() => {
+          this.likeBtn.classList.add(
+            "elements__card-container-footing-btn_active"
+          );
+          this.likesCountElement.textContent = +currentLikes + 1;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } else {
-      this.likesCountElement.textContent = (currentLikes - 1).toString();
+      this._api
+        .deleteLikeFromCard(this._id)
+        .then(() => {
+          this.likeBtn.classList.remove(
+            "elements__card-container-footing-btn_active"
+          );
+          this.likesCountElement.textContent = +currentLikes - 1;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
 
-    if (this.likesCountElement.textContent === "0") {
+    if (this.likesCountElement.textContent === "1") {
       this.likesCountElement.style.display = "none";
     } else {
       this.likesCountElement.style.display = "inline-block";

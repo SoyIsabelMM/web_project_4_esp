@@ -38,7 +38,6 @@ export default class Api {
         "https://around.nomoreparties.co/v1/web_es_05/cards",
         "GET"
       );
-console.log(res);
       return res;
     } catch (err) {
       console.log(err);
@@ -64,27 +63,55 @@ console.log(res);
 
   async addNewCardToServer(name, link) {
     try {
-        const res = await this._useFetch(
-            "https://around.nomoreparties.co/v1/web_es_05/cards",
-            "POST",
-            {
-              name: name,
-              link: link
-            }
-          );
-          return res;
-
-    } catch(err) {
-        console.log(err)
+      const res = await this._useFetch(
+        "https://around.nomoreparties.co/v1/web_es_05/cards",
+        "POST",
+        {
+          name: name,
+          link: link,
+        }
+      );
+      return res;
+    } catch (err) {
+      console.log(err);
     }
   }
 
   async deleteCardFromServer(cardId) {
-    try{
-      const res = await this._useFetch(`https://around.nomoreparties.co/v1/web_es_05/cards/${cardId}`, "DELETE")
+    try {
+      const res = await this._useFetch(
+        `https://around.nomoreparties.co/v1/web_es_05/cards/${cardId}`,
+        "DELETE"
+      );
 
       return res;
-    } catch(err){
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async addLikeFromCard(cardId) {
+    try {
+      const res = await this._useFetch(
+        `https://around.nomoreparties.co/v1/web_es_05/cards/likes/${cardId}`,
+        "PUT"
+      );
+
+      return res;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async deleteLikeFromCard(cardId) {
+    try {
+      const res = await this._useFetch(
+        `https://around.nomoreparties.co/v1/web_es_05/cards/likes/${cardId}`,
+        "DELETE"
+      );
+
+      return res;
+    } catch (err) {
       console.log(err);
     }
   }
