@@ -115,4 +115,20 @@ export default class Api {
       console.log(err);
     }
   }
+
+  async updateAvatar(avatarUrl) {
+    try {
+      const res = await this._useFetch(
+        "https://around.nomoreparties.co/v1/web_es_05/users/me/avatar",
+        "PATCH",
+        {
+          avatar: avatarUrl,
+        }
+      );
+
+      return res;
+    } catch (err) {
+      console.log(err);
+    }
+  }
 }

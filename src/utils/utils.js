@@ -8,26 +8,58 @@ import {
   inputAboutMe,
   btnOpenFormAddImage,
   addPictureFormClose,
+  formChangeImage,
+  btnKeep,
+  inputChangeUrlImage,
 } from "./constants.js";
 import Popup from "./Popup.js";
 import PopupWithForm from "./popupWithForm.js";
 import UserInfo from "./UserInfo.js";
 import Api from "./Api.js";
 import ModalConfirmAction from "./ModalConfirmAction.js";
+import ModalAvatarForm from "./ModalAvatarForm.js";
 
 export const api = new Api();
+
 export const modalConfirmAction = new ModalConfirmAction();
+
+const modalAvatarForm = new ModalAvatarForm();
 
 const popupFormProfile = new PopupWithForm("#edit-profile-form", editProfile);
 const closePopupEditProfile = new Popup("#edit-profile-form");
 
 popupFormProfile.setEventListeners();
 
-const userInfo = new UserInfo({
-  nameUserSelector: ".profile__info-name",
-  jobUserSelector: ".profile__info-about",
-  avatarSelector: ".profile__image",
-});
+export const userInfo = new UserInfo(
+  {
+    nameUserSelector: ".profile__info-name",
+    jobUserSelector: ".profile__info-about",
+    avatarSelector: ".profile__image",
+  },
+  api
+);
+
+/**Guarda la nueva imagén de perfil */
+function changeImage() {
+  formChangeImage.addEventListener("submit", (evt) => {
+    evt.preventDefault();
+    const newAvatarUrl = inputChangeUrlImage.value;
+    api
+      .updateAvatar(newAvatarUrl)
+      .then((res) => {
+        userInfo.setUserInfo({ avatar: newAvatarUrl });
+        modalAvatarForm.close();
+
+        return res;
+      })
+      .then(() => {
+        inputChangeUrlImage.value = "";
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+}
 
 /**
  *Abre y trae los datos del contenedor de perfil.
@@ -129,6 +161,6 @@ export function addEventListeners() {
   btnEditInfoProfile.addEventListener("click", openPopupProfile);
   btnOpenFormAddImage.addEventListener("click", openPopupAddImage);
   addPictureFormClose.addEventListener("click", closePopupAddImage);
-
+  btnKeep.addEventListener("click", changeImage);
   document.addEventListener("keydown", closeModal);
 }

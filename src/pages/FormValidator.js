@@ -1,27 +1,26 @@
 export default class FormValidator {
   constructor(setting, formElement) {
+    // Selectors
     this._inputSelector = setting.inputSelector;
     this._submitButtonSelector = setting.submitButtonSelector;
     this._inactiveButtonClass = setting.inactiveButtonClass;
     this._inputErrorClass = setting.inputErrorClass;
     this._errorClass = setting.errorClass;
     this._formElement = formElement;
+
+    // Elements
+    this._buttonElement = this._formElement.querySelector("button");
   }
 
   enableValidation() {
-    const inputList = Array.from(
-      this._formElement.querySelectorAll(this._inputSelector)
-    );
-    const buttonElement = this._formElement.querySelector(
-      this._submitButtonSelector
-    );
+    const inputList = Array.from(this._formElement.querySelectorAll("input"));
 
-    this._toggleButtonState(inputList, buttonElement);
+    this._toggleButtonState(inputList, this._buttonElement);
 
     inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
         this._isValid(this._formElement, inputElement);
-        this._toggleButtonState(inputList, buttonElement);
+        this._toggleButtonState(inputList, this._buttonElement);
       });
     });
   }
@@ -54,7 +53,7 @@ export default class FormValidator {
     errorElement.textContent = "";
   }
 
-  /** Lógica del botón */ 
+  /** Lógica del botón */
   _toggleButtonState(inputList, buttonElement) {
     if (this._hasInvalidInput(inputList)) {
       this._disabledButton(buttonElement);

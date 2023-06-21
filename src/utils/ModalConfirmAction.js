@@ -15,8 +15,8 @@ export default class ModalConfirmAction {
   }
 
   _setEventListeners() {
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
+    document.addEventListener("keydown", (evt) => {
+      if (evt.key === "Escape") {
         this.close();
       }
     });

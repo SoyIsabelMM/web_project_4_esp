@@ -7,8 +7,8 @@ import {
   addEventListeners,
   api,
   modalConfirmAction,
+  userInfo,
 } from "../src/utils/utils.js";
-import UserInfo from "./utils/UserInfo";
 
 (async function () {
   const cards = await api.getCards();
@@ -43,6 +43,7 @@ import UserInfo from "./utils/UserInfo";
     const formList = Array.from(
       document.querySelectorAll(".popup__container-form")
     );
+    formList.push(document.querySelector(".modal-window__form-change-image"));
 
     formList.forEach((formElement) => {
       const formValidator = new FormValidator(settingElement, formElement);
@@ -50,12 +51,6 @@ import UserInfo from "./utils/UserInfo";
     });
 
     async function infoProfile() {
-      const userInfo = new UserInfo({
-        nameUserSelector: ".profile__info-name",
-        jobUserSelector: ".profile__info-about",
-        avatarSelector: ".profile__image",
-      });
-
       userInfo.setUserInfo({
         name: userInfoFromServer.name,
         about: userInfoFromServer.about,

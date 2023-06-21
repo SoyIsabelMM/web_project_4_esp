@@ -32,3 +32,11 @@ export const settingElement = {
 };
 
 export const selector = ".elements";
+
+export const formChangeImage = document.querySelector(
+  ".modal-window__form-change-image"
+);
+
+export const btnKeep = document.querySelector(".modal-window__keep-btn");
+
+export const inputChangeUrlImage = formChangeImage.querySelector("#url-change");

@@ -1,10 +1,10 @@
 .modal-window__keep-btn {
   width: 358px;
   height: 40px;
-  background: black;
+  background-color: black;
   color: white;
   border: none;
-  border-radius: 2px;
+  border-radius: 10px;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
