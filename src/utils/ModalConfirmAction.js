@@ -48,4 +48,12 @@ export default class ModalConfirmAction {
   _handleAction() {
     this._action();
   }
+
+  loadingAction(isLoading) {
+    if (isLoading) {
+      this._btnConfirm.textContent = "Borrando...";
+    } else {
+      this._btnConfirm.textContent = "Sí";
+    }
+  }
 }

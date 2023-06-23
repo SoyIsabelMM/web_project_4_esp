@@ -40,7 +40,8 @@ export default class Card {
           this.likeBtn.classList.add(
             "elements__card-container-footing-btn_active"
           );
-          this.likesCountElement.textContent = +currentLikes + 1;
+          this.likesCountElement.textContent = String(currentLikes + 1);
+          this._updateLikesDisplay();
         })
         .catch((err) => {
           console.log(err);
@@ -52,14 +53,18 @@ export default class Card {
           this.likeBtn.classList.remove(
             "elements__card-container-footing-btn_active"
           );
-          this.likesCountElement.textContent = +currentLikes - 1;
+          this.likesCountElement.textContent = String(currentLikes - 1);
+          this._updateLikesDisplay();
         })
         .catch((err) => {
           console.log(err);
         });
     }
+  }
 
-    if (this.likesCountElement.textContent === "1") {
+  _updateLikesDisplay() {
+    const likesCount = parseInt(this.likesCountElement.textContent);
+    if (likesCount === 0) {
       this.likesCountElement.style.display = "none";
     } else {
       this.likesCountElement.style.display = "inline-block";
@@ -71,6 +76,7 @@ export default class Card {
   }
 
   _deleteCard() {
+    this._modalConfirmAction.loadingAction(true);
     this._api
       .deleteCardFromServer(this._id)
       .then(() => {
@@ -79,6 +85,9 @@ export default class Card {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        this._modalConfirmAction.loadingAction(false);
       });
   }
 

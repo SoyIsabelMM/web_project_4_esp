@@ -41,4 +41,12 @@ export default class ModalAvatarForm {
     this._modalElement.classList.add("open");
     this._formElement.classList.add("open");
   }
+
+  loadingAction(isLoading) {
+    if (isLoading) {
+      this._btnKeep.textContent = "Guardando...";
+    } else {
+      this._btnKeep.textContent = "Guardar";
+    }
+  }
 }

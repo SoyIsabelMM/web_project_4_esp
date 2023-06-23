@@ -4,6 +4,10 @@ export default class Popup {
     this._btnPopupClose = document.querySelector(
       ".popup__container-close-popup"
     );
+
+    this._btnSelector = this._selector.querySelector(
+      ".popup__container-save-btn"
+    );
   }
 
   open() {
@@ -30,5 +34,13 @@ export default class Popup {
         this.close();
       }
     });
+  }
+
+  loadingAction(isLoading, originalName) {
+    if (isLoading) {
+      this._btnSelector.textContent = "Guardando...";
+    } else {
+      this._btnSelector.textContent = "Guardar";
+    }
   }
 }

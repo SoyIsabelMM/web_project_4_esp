@@ -11,6 +11,7 @@ import {
   formChangeImage,
   btnKeep,
   inputChangeUrlImage,
+  settingElement,
 } from "./constants.js";
 import Popup from "./Popup.js";
 import PopupWithForm from "./popupWithForm.js";
@@ -26,9 +27,7 @@ export const modalConfirmAction = new ModalConfirmAction();
 const modalAvatarForm = new ModalAvatarForm();
 
 const popupFormProfile = new PopupWithForm("#edit-profile-form", editProfile);
-const closePopupEditProfile = new Popup("#edit-profile-form");
-
-popupFormProfile.setEventListeners();
+const popupEditProfile = new Popup("#edit-profile-form");
 
 export const userInfo = new UserInfo(
   {
@@ -41,6 +40,7 @@ export const userInfo = new UserInfo(
 
 /**Guarda la nueva imagén de perfil */
 function changeImage() {
+  modalAvatarForm.loadingAction(true);
   formChangeImage.addEventListener("submit", (evt) => {
     evt.preventDefault();
     const newAvatarUrl = inputChangeUrlImage.value;
@@ -49,7 +49,6 @@ function changeImage() {
       .then((res) => {
         userInfo.setUserInfo({ avatar: newAvatarUrl });
         modalAvatarForm.close();
-
         return res;
       })
       .then(() => {
@@ -57,6 +56,10 @@ function changeImage() {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        modalAvatarForm.loadingAction(false);
+        enableBtnPhotoProfile();
       });
   });
 }
@@ -78,19 +81,23 @@ function openPopupProfile() {
  *los valores nuevos
  */
 async function editProfile() {
-  closePopupEditProfile.close();
-
   userInfo.setUserInfo({
     name: inputName.value,
     about: inputAboutMe.value,
   });
 
   try {
+    popupFormProfile.loadingAction(true);
     const res = await api.saveDataToServer(inputName.value, inputAboutMe.value);
+
+    enableBtn();
 
     return res;
   } catch (err) {
     console.log(err);
+  } finally {
+    popupFormProfile.loadingAction(false);
+    popupEditProfile.close();
   }
 }
 
@@ -112,9 +119,8 @@ const popupFormAddPicture = new PopupWithForm(
   saveNewImage
 );
 
-popupFormAddPicture.setEventListeners();
-
 function openPopupAddImage() {
+  enableBtn();
   popupFormAddPicture.open();
 }
 
@@ -124,35 +130,49 @@ function closePopupAddImage() {
 
 function saveNewImage() {
   addNewCardElement();
-  popupFormAddPicture.close();
 }
 
-function addNewCardElement() {
+async function addNewCardElement() {
   const inputTitlePlace = document.querySelector("#title-place");
   const inputNewImage = document.querySelector("#new-image");
 
   const data = { name: inputTitlePlace.value, link: inputNewImage.value };
 
-  const api = new Api();
+  try {
+    popupFormAddPicture.loadingAction(true);
+    const response = await api.addNewCardToServer(data.name, data.link);
 
-  api
-    .addNewCardToServer(data.name, data.link)
-    .then((response) => {
-      data.canBeDelete = true;
-      data._id = response._id;
-      const cardElement = new Card(data, {
-        api,
-        modalConfirmAction,
-      }).generateCard();
+    data.canBeDelete = true;
+    data._id = response._id;
+    const cardElement = new Card(data, {
+      api,
+      modalConfirmAction,
+    }).generateCard();
 
-      elementsSectionCard.prepend(cardElement);
+    elementsSectionCard.prepend(cardElement);
 
-      inputTitlePlace.value = "";
-      inputNewImage.value = "";
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    inputTitlePlace.value = "";
+    inputNewImage.value = "";
+  } catch (err) {
+    console.log(err);
+    alert("Se ha producido un error");
+  } finally {
+    popupFormAddPicture.loadingAction(false);
+    popupFormAddPicture.close();
+  }
+}
+
+function enableBtn() {
+  const botton = document.querySelectorAll(settingElement.submitButtonSelector);
+  botton.forEach((evt) => {
+    evt.classList.add(settingElement.inactiveButtonClass);
+    evt.setAttribute("disabled", true);
+  });
+}
+
+function enableBtnPhotoProfile() {
+  btnKeep.classList.add(settingElement.inactiveButtonClass);
+  btnKeep.setAttribute("disabled", true);
 }
 
 export function addEventListeners() {
@@ -164,3 +184,7 @@ export function addEventListeners() {
   btnKeep.addEventListener("click", changeImage);
   document.addEventListener("keydown", closeModal);
 }
+
+popupFormProfile.setEventListeners();
+
+popupFormAddPicture.setEventListeners();
