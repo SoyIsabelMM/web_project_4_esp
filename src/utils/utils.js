@@ -1,4 +1,4 @@
-import Card from "./Card.js";
+import Card from "../components/Card.js";
 import {
   elementsSectionCard,
   modalExpandedImage,
@@ -13,12 +13,12 @@ import {
   inputChangeUrlImage,
   settingElement,
 } from "./constants.js";
-import Popup from "./Popup.js";
-import PopupWithForm from "./popupWithForm.js";
-import UserInfo from "./UserInfo.js";
-import Api from "./Api.js";
-import ModalConfirmAction from "./ModalConfirmAction.js";
-import ModalAvatarForm from "./ModalAvatarForm.js";
+import Popup from "../components/Popup.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import UserInfo from "../components/UserInfo.js";
+import Api from "../components/Api.js";
+import ModalConfirmAction from "../components/ModalConfirmAction.js";
+import ModalAvatarForm from "../components/ModalAvatarForm.js";
 
 export const api = new Api();
 

@@ -1,5 +1,5 @@
 import "./styles/index.css";
-import Card from "../src/utils/Card.js";
+import Card from "./components/Card.js";
 import FormValidator from "../src/pages/FormValidator.js";
 import Section from "../src/components/Section.js";
 import { settingElement, selector } from "../src/utils/constants.js";
