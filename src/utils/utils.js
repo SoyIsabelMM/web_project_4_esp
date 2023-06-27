@@ -12,6 +12,7 @@ import {
   btnKeep,
   inputChangeUrlImage,
   settingElement,
+  apiKey,
 } from "./constants.js";
 import Popup from "../components/Popup.js";
 import PopupWithForm from "../components/PopupWithForm.js";
@@ -20,7 +21,7 @@ import Api from "../components/Api.js";
 import ModalConfirmAction from "../components/ModalConfirmAction.js";
 import ModalAvatarForm from "../components/ModalAvatarForm.js";
 
-export const api = new Api();
+export const api = new Api({ apiKey });
 
 export const modalConfirmAction = new ModalConfirmAction();
 

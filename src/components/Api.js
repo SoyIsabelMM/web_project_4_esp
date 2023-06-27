@@ -1,6 +1,6 @@
 export default class Api {
-  constructor() {
-    this._authorization = "e1a4b600-66f9-4d45-b660-4ae737476424";
+  constructor({ apiKey }) {
+    this._authorization = apiKey;
   }
 
   async _useFetch(url, method, body) {

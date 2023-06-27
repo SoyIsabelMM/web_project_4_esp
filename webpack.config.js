@@ -1,4 +1,5 @@
 const path = require("path");
+const Dotenv = require("dotenv-webpack");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -78,5 +79,7 @@ module.exports = {
     new CleanWebpackPlugin(),
 
     new MiniCssExtractPlugin(), // conecta el plugin para fusionar archivos CSS
+
+    new Dotenv(),
   ],
 };
