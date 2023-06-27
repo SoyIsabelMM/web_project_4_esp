@@ -2,7 +2,7 @@
   background-color: black;
   width: 358px;
   height: 50px;
-  border-radius: 2px;
+  border-radius: 10px;
   position: absolute;
   cursor: pointer;
   border: none;
@@ -13,4 +13,11 @@
   font-size: 18px;
   line-height: 22px;
   text-align: center;
+}
+
+@media screen and (min-width: 320px) and (max-width: 898px) {
+  .modal-window__btn-delete {
+    width: 238px;
+    left: 23px;
+  }
 }

@@ -4,4 +4,15 @@
   background: #ffffff;
   position: relative;
   border-radius: 10px;
+  top: -115px;
+  left: auto;
+  right: auto;
+}
+
+@media screen and (min-width: 320px) and (max-width: 898px) {
+  .modal-window__change-image {
+    width: 282px;
+    align-items: center;
+    top: -150px;
+  }
 }

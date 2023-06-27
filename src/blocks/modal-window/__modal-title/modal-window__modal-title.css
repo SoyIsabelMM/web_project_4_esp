@@ -6,4 +6,14 @@
   color: black;
   font-size: 24px;
   margin: 34px auto 124px;
+  line-height: 29px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 898px) {
+  .modal-window__modal-title {
+    font-size: 18px;
+    line-height: 22px;
+    margin: 35px auto;
+    width: 238px;
+  }
 }

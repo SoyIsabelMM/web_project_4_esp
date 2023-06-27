@@ -4,4 +4,13 @@
   height: 181px;
   background: #ffffff;
   border-radius: 10px;
+  left: auto;
+  right: auto;
+}
+
+@media screen and (min-width: 320px) and (max-width: 898px) {
+  .modal-window__container {
+    width: 282px;
+    top: 20px;
+  }
 }
