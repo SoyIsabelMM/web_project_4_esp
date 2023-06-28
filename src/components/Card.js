@@ -1,11 +1,15 @@
 import PopupWhitImage from "./PopupWithImage.js";
 
 export default class Card {
-  constructor({ name, link, _id, canBeDelete }, { api, modalConfirmAction }) {
+  constructor(
+    { name, link, _id, canBeDelete, likes },
+    { api, modalConfirmAction }
+  ) {
     this._name = name;
     this._link = link;
     this._id = _id;
     this._canBeDelete = canBeDelete;
+    this._likes = likes;
 
     this._popupWithImage = new PopupWhitImage(".modal");
     this._api = api;
@@ -21,44 +25,37 @@ export default class Card {
     return cardElement;
   }
 
-  _handleLikeIconToServer() {
-    this.element
-      .querySelector(".elements__card-container-footing-btn")
-      .classList.toggle("elements__card-container-footing-btn_active");
+  async _handleLikeIconToServer() {
+    this.likeBtn.classList.toggle(
+      "elements__card-container-footing-btn_active"
+    );
 
     const likeCount = this.likesCountElement.textContent;
     const currentLikes = parseInt(likeCount);
 
-    if (
-      this.likeBtn.classList.contains(
-        "elements__card-container-footing-btn_active"
-      )
-    ) {
-      this._api
-        .addLikeFromCard(this._id)
-        .then(() => {
-          this.likeBtn.classList.add(
-            "elements__card-container-footing-btn_active"
-          );
-          this.likesCountElement.textContent = String(currentLikes + 1);
-          this._updateLikesDisplay();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } else {
-      this._api
-        .deleteLikeFromCard(this._id)
-        .then(() => {
-          this.likeBtn.classList.remove(
-            "elements__card-container-footing-btn_active"
-          );
-          this.likesCountElement.textContent = String(currentLikes - 1);
-          this._updateLikesDisplay();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+    try {
+      if (
+        this.likeBtn.classList.contains(
+          "elements__card-container-footing-btn_active"
+        )
+      ) {
+        await this._api.addLikeFromCard(this._id);
+
+        this.likeBtn.classList.add(
+          "elements__card-container-footing-btn_active"
+        );
+        this.likesCountElement.textContent = String(currentLikes + 1);
+      } else {
+        await this._api.deleteLikeFromCard(this._id);
+        this.likeBtn.classList.remove(
+          "elements__card-container-footing-btn_active"
+        );
+        this.likesCountElement.textContent = String(currentLikes - 1);
+      }
+
+      this._updateLikesDisplay();
+    } catch (err) {
+      console.log(err);
     }
   }
 
@@ -92,10 +89,6 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this.likeBtn = this.element.querySelector(
-      ".elements__card-container-footing-btn"
-    );
-
     this.likeBtn.addEventListener("click", () => {
       this._handleLikeIconToServer();
     });
@@ -123,9 +116,14 @@ export default class Card {
 
   generateCard() {
     this.element = this._getTemplateCard();
+    this.likeBtn = this.element.querySelector(
+      ".elements__card-container-footing-btn"
+    );
+
     this.elementImageCard = this.element.querySelector(
       ".elements__card-container-image"
     );
+
     this.elementTitleCard = this.element.querySelector(
       ".elements__card-container-footing-title"
     );
@@ -133,10 +131,21 @@ export default class Card {
     this.likesCountElement = this.element.querySelector(
       ".elements__like-counter"
     );
-    this.likesCountElement.textContent = "0";
+
+    this.likesCountElement.textContent = this._likes.length;
 
     if (this.likesCountElement.textContent === "0") {
       this.likesCountElement.style.display = "none";
+    } else {
+      const myLike = this._likes.find((e) => {
+        return e._id === "1e9a8e272fd2a25ec18e7a3c";
+      });
+
+      if (myLike) {
+        this.likeBtn.classList.add(
+          "elements__card-container-footing-btn_active"
+        );
+      }
     }
 
     this._setEventListeners();

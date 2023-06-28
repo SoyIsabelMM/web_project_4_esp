@@ -13,18 +13,19 @@ import {
 (async function () {
   const cards = await api.getCards();
   const userInfoFromServer = await api.getUserInfoFromServer();
-  const idUser = userInfoFromServer._id;
+  const userId = userInfoFromServer._id;
 
   const renderInitialCards = new Section(
     {
       items: cards.map((card) => {
-        const canBeDelete = card.owner._id == idUser;
+        const canBeDelete = card.owner._id == userId;
 
         return {
           name: card.name,
           link: card.link,
           _id: card._id,
           canBeDelete: canBeDelete,
+          likes: card.likes,
         };
       }),
       renderer: (cardItem) => {
