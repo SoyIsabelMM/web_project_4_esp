@@ -29,7 +29,7 @@ import {
         };
       }),
       renderer: (cardItem) => {
-        const card = new Card(cardItem, { api, modalConfirmAction });
+        const card = new Card(cardItem, { api, modalConfirmAction }, userId);
         const cardElement = card.generateCard();
 
         renderInitialCards.addItem(cardElement);

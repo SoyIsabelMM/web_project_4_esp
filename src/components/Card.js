@@ -3,13 +3,15 @@ import PopupWhitImage from "./PopupWithImage.js";
 export default class Card {
   constructor(
     { name, link, _id, canBeDelete, likes },
-    { api, modalConfirmAction }
+    { api, modalConfirmAction },
+    userId
   ) {
     this._name = name;
     this._link = link;
     this._id = _id;
     this._canBeDelete = canBeDelete;
     this._likes = likes;
+    this._userId = userId;
 
     this._popupWithImage = new PopupWhitImage(".modal");
     this._api = api;
@@ -30,27 +32,24 @@ export default class Card {
       "elements__card-container-footing-btn_active"
     );
 
-    const likeCount = this.likesCountElement.textContent;
-    const currentLikes = parseInt(likeCount);
-
     try {
       if (
         this.likeBtn.classList.contains(
           "elements__card-container-footing-btn_active"
         )
       ) {
-        await this._api.addLikeFromCard(this._id);
+        const result = await this._api.addLikeFromCard(this._id);
 
         this.likeBtn.classList.add(
           "elements__card-container-footing-btn_active"
         );
-        this.likesCountElement.textContent = String(currentLikes + 1);
+        this.likesCountElement.textContent = result.likes.length;
       } else {
-        await this._api.deleteLikeFromCard(this._id);
+        const resultDelete = await this._api.deleteLikeFromCard(this._id);
         this.likeBtn.classList.remove(
           "elements__card-container-footing-btn_active"
         );
-        this.likesCountElement.textContent = String(currentLikes - 1);
+        this.likesCountElement.textContent = resultDelete.likes.length;
       }
 
       this._updateLikesDisplay();
@@ -137,8 +136,8 @@ export default class Card {
     if (this.likesCountElement.textContent === "0") {
       this.likesCountElement.style.display = "none";
     } else {
-      const myLike = this._likes.find((e) => {
-        return e._id === "1e9a8e272fd2a25ec18e7a3c";
+      const myLike = this._likes.find((evt) => {
+        return evt._id === this._userId;
       });
 
       if (myLike) {
