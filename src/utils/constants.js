@@ -41,6 +41,4 @@ export const btnKeep = document.querySelector(".modal-window__keep-btn");
 
 export const inputChangeUrlImage = formChangeImage.querySelector("#url-change");
 
-/**constante para traer el token del servidor */
-
-export const apiKey = process.env.API_KEY;
+export const apiKey = "e1a4b600-66f9-4d45-b660-4ae737476424";
